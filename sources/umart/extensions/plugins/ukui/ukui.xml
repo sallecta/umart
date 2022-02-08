@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+    <name>JoomTech UKUI</name>
+    <author>JoomTech Team</author>
+    <creationDate>October, 2017</creationDate>
+    <copyright>Copyright (c) 2015 - 2021 JoomTech. All rights reserved.</copyright>
+    <authorEmail>contact@joomtech.net</authorEmail>
+    <authorUrl>www.joomtech.net</authorUrl>
+    <version>1.1.4</version>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <description>UKui - Based on UIKIT 3</description>
+    <scriptfile>install.script.php</scriptfile>
+    <files>
+        <filename plugin="ukui">ukui.php</filename>
+        <folder>helpers</folder>
+        <folder>layouts</folder>
+        <folder>media</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="load_uikit3"
+                        type="list"
+                        label="Load UIKIT 3"
+                        description="If your template was ready UIKIT 3 you shouldn't load it anymore"
+                        default="local">
+                    <option value="local">Local (scope mode)</option>
+                    <option value="cdn">CDN</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                        name="load_awesome_icon"
+                        type="list"
+                        label="Load Awesome Icon"
+                        description="If your template was ready Awesome Icon (version 5.3) you shouldn't load it anymore"
+                        default="cdn">
+                    <option value="cdn">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

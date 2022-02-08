@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="general"
+            label="COM_EASYSHOP_OPTIONS">
+        <field name="id" type="hidden" readonly="true"/>
+        <field
+                name="name"
+                type="text"
+                label="COM_EASYSHOP_NAME"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="name_english"
+                type="text"
+                label="COM_EASYSHOP_NAME_ENGLISH"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                filter="intval"
+                validate="options"
+                class="uk-select"
+                default="1">
+            <option value="1">
+                COM_EASYSHOP_PUBLISHED
+            </option>
+            <option value="0">
+                COM_EASYSHOP_UNPUBLISHED
+            </option>
+            <option value="2">
+                JARCHIVED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="code_2"
+                type="text"
+                label="COM_EASYSHOP_CODE_2"
+                class="uk-input"/>
+        <field
+                name="code_3"
+                type="text"
+                label="COM_EASYSHOP_CODE_3"
+                class="uk-input"/>
+        <field
+                name="type"
+                type="switcher"
+                label="COM_EASYSHOP_TYPE"
+                default="country"
+                validate="options">
+            <option value="country">COM_EASYSHOP_COUNTRY</option>
+            <option value="state">COM_EASYSHOP_STATE</option>
+            <option value="subzone">COM_EASYSHOP_SUBZONE</option>
+        </field>
+        <field
+                name="country_id"
+                type="zone"
+                zone_type="country"
+                label="COM_EASYSHOP_FILTER_COUNTRY"
+                class="uk-select"
+                default=""
+                showon="type:state,subzone"/>
+        <field
+                name="state_id"
+                type="zone"
+                zone_type="state"
+                label="COM_EASYSHOP_FILTER_STATE"
+                class="uk-select"
+                default=""
+                showon="type:subzone"/>
+    </fieldset>
+</form>

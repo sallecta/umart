@@ -1,0 +1,11 @@
+ALTER TABLE `#__easyshop_customfields` CHANGE `field_name` `field_name` VARCHAR(50) NOT NULL DEFAULT '';
+ALTER TABLE `#__easyshop_customfields` CHANGE `type` `type` VARCHAR(20) NOT NULL DEFAULT 'TEXT';
+ALTER TABLE `#__easyshop_products` CHANGE `sku` `sku` VARCHAR(50) NOT NULL DEFAULT '';
+ALTER TABLE `#__easyshop_zones` CHANGE `code_2` `code_2` VARCHAR(10) NOT NULL DEFAULT '';
+ALTER TABLE `#__easyshop_zones` CHANGE `code_3` `code_3` VARCHAR(10) NOT NULL DEFAULT '';
+ALTER TABLE `#__easyshop_zones` CHANGE `type` `type` VARCHAR(20) NOT NULL DEFAULT '';
+ALTER TABLE `#__easyshop_methods` ADD INDEX `idx_state` (`state`);
+ALTER TABLE `#__easyshop_tags` ADD INDEX `idx_state` (`state`);
+ALTER TABLE `#__easyshop_tags` ADD INDEX `idx_context` (`context`(191));
+ALTER TABLE `#__easyshop_discounts` ADD COLUMN `product_min_price` DECIMAL(14, 2) UNSIGNED NOT NULL DEFAULT '0.00' AFTER `order_min_amount`;
+ALTER TABLE `#__easyshop_discounts` ADD COLUMN `product_max_price` DECIMAL(14, 2) UNSIGNED NOT NULL DEFAULT '0.00' AFTER `product_min_price`;

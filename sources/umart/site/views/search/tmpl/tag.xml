@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_EASYSHOP_TAG">
+        <message>
+            <![CDATA[COM_EASYSHOP_TAG_DESC]]>
+        </message>
+    </layout>
+    <fields name="params">
+        <fieldset
+                name="basic"
+                label="COM_EASYSHOP_RESULTS_DISPLAY"
+                addfieldpath="/administrator/components/com_easyshop/models/fields">
+            <field
+                    name="show_search_filter_bar"
+                    type="list"
+                    label="COM_EASYSHOP_SHOW_FILTER_BAR"
+                    default="">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="1">COM_EASYSHOP_YES</option>
+                <option value="0">COM_EASYSHOP_NO</option>
+            </field>
+            <field
+                    name="show_search_toggle_button"
+                    type="list"
+                    label="COM_EASYSHOP_SHOW_TOGGLE_BUTTON"
+                    default=""
+                    showon="show_search_filter_bar:1">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="1">COM_EASYSHOP_YES</option>
+                <option value="0">COM_EASYSHOP_NO</option>
+            </field>
+            <field
+                    name="search_default_ordering"
+                    type="EasyshopSort"
+                    label="COM_EASYSHOP_DEFAULT_ORDERING"
+                    default=""/>
+            <field
+                    name="search_default_limit"
+                    type="text"
+                    label="COM_EASYSHOP_DEFAULT_LIMIT"
+                    default=""/>
+        </fieldset>
+    </fields>
+</metadata>

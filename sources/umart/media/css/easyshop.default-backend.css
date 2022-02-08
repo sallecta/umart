@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.es-logo {
+    font-family: 'Roboto', sans-serif;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 8px;
+    font-weight: 600;
+    color: #F44336;
+    font-size: 20px;
+    position: relative;
+}
+
+.es-logo .version {
+    font-size: 12px;
+    position: absolute;
+}
+
+#system-message-container {
+    padding: 0;
+}
+
+.easyshop-image-box {
+    position: relative;
+    min-height: 80px;
+    background-color: #fbfbfb;
+}
+
+.easyshop-image-box:after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.easyshop-image-box > .product-icon-add {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 32px;
+    color: #409740;
+    outline: none;
+    font-size: 1.5em;
+    padding: 2px 0 2px 15px;
+}
+
+.easyshop-image-box,
+.easyshop-image-box > .product-icon-add {
+    -webkit-background-image: linear-gradient(white, #ededed);
+    background-image: linear-gradient(white, #ededed);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+#easyshop-box-modal .modal-body {
+    max-height: 500px;
+}
+
+.easyshop-image-box .image-box {
+    float: left;
+}
+
+.easyshop-image-box .image-box a {
+    display: block;
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 2px;
+    margin: 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.uk-form-grid .radio label {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.uk-form-grid .radio input[type="radio"],
+.uk-form-grid .checkbox input[type="checkbox"] {
+    float: none;
+    margin-left: 5px;
+}
+
+.uk-form-grid input.field-media-input {
+    height: 28px;
+}
+
+.uk-form-grid .chzn-container-multi .chzn-choices li.search-field input[type="text"] {
+    box-sizing: content-box;
+}
+
+.uk-form-grid input.uk-calendar {
+    border-radius: 4px 0 0 4px;
+    height: 28px;
+}
+
+#es-option-modal .opt-group #option_currency {
+    width: 180px;
+}
+
+.es-custom-fields .callname:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.es-custom-fields .callname {
+    width: 258px;
+}
+
+.es-custom-fields .callname > input:last-child {
+    float: right;
+}
+
+#es-order-edit [data-panel-clone] input[type="text"],
+#es-order-edit [data-panel-clone] input[type="email"],
+#es-modal-new .form-body input[type="text"],
+#es-modal-new .form-body input[type="email"] {
+    box-sizing: border-box;
+    padding: 13px 5px;
+}
+
+#es-order-edit [data-panel-clone] .uk-flex input[type="text"] {
+    width: auto;
+}
+
+#es-modal-new select.es-zone {
+    width: 100%;
+}
+
+#es-order-edit .es-input-group input[type="text"][readonly],
+[data-modal-new-order] .es-input-group input[type="text"][readonly] {
+    border-color: #ddd;
+    background-color: #fafafa;
+    color: #999;
+    width: auto;
+}
+
+[data-modal-new-order] .es-input-group input[type="text"][readonly] {
+    height: 20px;
+}
+
+#es-order-edit [data-panel-clone] .callname input:last-child,
+[data-modal-new-order] .callname input:last-child {
+    float: right;
+}
+
+#es-option-modal [data-option-group] > *:not(:last-child) {
+    margin-right: 5px;
+}
+
+#es-order-edit [data-order-cart] td > input[type="text"],
+#es-order-edit [data-order-cart] td > input[type="number"],
+#es-order-edit [data-order-cart] td > textarea {
+    display: block;
+}
+
+#es-order-edit [data-order-cart] td > #pQuantity {
+    width: 55px;
+}
+
+#es-order-edit [data-order-cart] td > #pSubtotal {
+    border: none;
+    background: #eee;
+    width: 105px;
+}
+
+#es-order-edit [data-order-cart] td > textarea {
+    height: 80px;
+}
+
+/** Refactoring */
+
+.component .es-scope {
+    margin: 0;
+    background: #fff;
+}
+
+.es-scope #item-form {
+    padding: 20px;
+    background: #fff;
+}
+
+#es-navbar li > a {
+    color: #444;
+}
+
+#es-navbar li > a > [class^="es-icon"] {
+    margin-right: 3px;
+}
+
+#es-navbar .uk-active > a,
+#es-navbar li > a:hover {
+    color: #111;
+}
+
+#es-navbar .uk-nav-sub > li > a {
+    line-height: 24px;
+}
+
+#es-navbar {
+    float: left;
+    transition: all .2s ease;
+}
+
+#es-body {
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
+}
+
+#es-product-details .uk-form-label {
+    display: inline-block;
+}
+
+.uk-scope .uk-modal-full {
+    z-index: 9999;
+}
+
+/** Dashboard */
+
+#es-chart .title-bar .bar-control {
+    width: 70px;
+    height: 20px;
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    padding-top: 2px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+#es-chart .title-bar .active {
+    background: #1e87f0;
+    color: #fff;
+}
+
+#es-total-sales .es-paid-amount,
+#es-total-sales .es-unpaid-amount,
+#es-total-sales .es-refund-amount {
+    margin: 15px auto;
+    height: 120px;
+    width: 120px;
+    font-size: 24px;
+    line-height: 120px;
+
+}
+
+@keyframes bobble {
+    0% {
+        transform: translate3d(50px, 40px, 0px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translate3d(50px, 50px, 0px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translate3d(50px, 40px, 0px);
+    }
+}
+
+#es-chart h4,
+#es-latest-orders h4 {
+    margin-top: 0;
+}
+
+table.es-order-notification > thead > tr > th,
+table.es-order-notification > tbody > tr > th,
+table.es-order-notification > tfoot > tr > th,
+table.es-order-notification > thead > tr > td,
+table.es-order-notification > tbody > tr > td,
+table.es-order-notification > tfoot > tr > td {
+    border-color: #f4f4f4;
+}
+
+#es-chart .es-currency-id {
+    width: auto;
+    float: right;
+    padding: 0 25px 0 12px;
+}
+
+#es-total-sales {
+    margin-top: 15px;
+}
+
+#es-dashboard .es-tile .uk-tile {
+    color: #fff;
+}
+
+#es-dashboard .es-count {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#es-dashboard .es-total {
+    display: inline-block;
+    font-size: 14px;
+}
+
+#es-dashboard .es-tile i {
+    position: absolute;
+    top: 25%;
+    right: 15px;
+    opacity: .8;
+    transition: .2s all ease;
+}
+
+#es-dashboard .es-tile .uk-tile:hover i {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#es-dashboard .es-tile p {
+    font-size: 16px;
+    margin: 15px 0 35px 0;
+    text-transform: capitalize;
+}
+
+#es-dashboard .es-tile a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+#es-dashboard .es-sales-this-month {
+    background-color: #00a65a;
+}
+
+#es-dashboard .es-order-average-price {
+    background-color: #f39c12;
+}
+
+#es-dashboard .es-order-current {
+    background-color: #dd4b39;
+}
+
+#es-component [class^="uk-form-width"] {
+    box-sizing: border-box;
+    height: inherit;
+}
+
+#jform_product_tags {
+    height: 34px;
+}
+
+#es-component .uk-table-small td,
+.uk-scope .uk-table-small th {
+    padding: 8px;
+}
+
+/* @since 1.1.5 */
+#es-component .es-color-input {
+    height: 40px;
+}
+
+#es-component .es-color-input + .minicolors-input-swatch {
+    top: 10px;
+}
+
+#es-edit-field-page .subform-repeatable-wrapper .uk-form-label,
+#es-edit-field-page .subform-repeatable-wrapper .uk-form-controls {
+    width: 100%;
+    float: none;
+}
+
+#es-edit-field-page .subform-repeatable-wrapper .uk-form-controls,
+#es-edit-field-page #jform_params_options-lbl + .uk-form-controls {
+    margin-left: 0;
+}
+
+#es-edit-field-page .subform-repeatable {
+    display: inline-block;
+    width: 480px;
+    max-width: 100%;
+}
+
+#es-edit-field-page .minicolors {
+    display: inline-block;
+    max-width: 100%;
+}
+
+#es-edit-field-page #jform_params_options-lbl {
+    display: none;
+}
+
+#es-edit-field-page .subform-repeatable > .btn-toolbar .group-add {
+    color: #fff;
+    border-radius: 0;
+}
+
+#es-table-prices input[type="number"] {
+    width: 110px !important;
+}
+
+#es-table-prices select,
+#es-table-prices input[type="text"] {
+    width: 160px !important;
+}
+
+.es-field-icon,
+.es-field-icon-current {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+
+.es-field-icon {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.es-field-icon-current {
+    width: 24px;
+    height: 24px;
+}
+
+.es-field-icon-current.empty {
+    border-color: #faa05a;
+}
+
+.es-field-icon-container > .active,
+.es-field-icon-container > .es-field-icon:hover {
+    background-color: #1e87f0;
+    color: #fff;
+}
+
+.es-week-day-price-container {
+    padding: 2px;
+    width: 108px;
+}

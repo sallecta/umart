@@ -1,0 +1,1 @@
+ALTER TABLE `#__easyshop_products` ADD COLUMN `approved` TINYINT(1) UNSIGNED NOT NULL DEFAULT '1' AFTER `display_in_search`;

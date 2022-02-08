@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_EASYSHOP_FILTER_SEARCH"
+                description="COM_EASYSHOP_FILTER_SEARCH_DESC"
+                class="uk-input"
+                hint="JSEARCH_FILTER"
+        />
+        <field
+                name="published"
+                type="OrderStatus"
+                label="COM_EASYSHOP_ORDER_STATUS"
+                class="uk-select"
+                onchange="this.form.submit();"
+        >
+            <option value="">COM_EASYSHOP_ORDER_STATUS</option>
+        </field>
+        <field
+                name="payment_status"
+                type="PaymentStatus"
+                label="COM_EASYSHOP_PAYMENT_STATUS"
+                class="uk-select"
+                onchange="this.form.submit();"
+        >
+            <option value="">COM_EASYSHOP_PAYMENT_STATUS</option>
+        </field>
+        <field
+                name="vendor_id"
+                type="hidden"
+                label="COM_EASYSHOP_VENDOR_SELECT"
+                hint="COM_EASYSHOP_VENDOR_SELECT"
+                onchange="this.form.submit();"
+                default=""
+        />
+        <field
+                name="user_id"
+                type="Modal_User"
+                label="COM_EASYSHOP_CUSTOMER_SELECT"
+                hint="COM_EASYSHOP_CUSTOMER_SELECT"
+                onchange="this.form.submit();"
+        />
+        <field
+                name="product_id"
+                type="Modal_Product"
+                label="COM_EASYSHOP_PRODUCT_SELECT"
+                hint="COM_EASYSHOP_PRODUCT_SELECT"
+                onchange="this.form.submit();"
+        />
+        <field
+                name="currency_id"
+                type="currency"
+                label="COM_EASYSHOP_CURRENCY_SELECT"
+                class="uk-select"
+                onchange="this.form.submit();"
+        >
+            <option value="">COM_EASYSHOP_CURRENCY_SELECT</option>
+        </field>
+        <field
+                name="from_date"
+                type="FlatPicker"
+                label="COM_EASYSHOP_FROM_DATE"
+                hint="COM_EASYSHOP_FROM_DATE"
+                showTime="false"
+                numberOfMonths="2"
+                filter="user_utc"
+                onchange="this.form.submit();"
+        />
+        <field
+                name="to_date"
+                type="FlatPicker"
+                label="COM_EASYSHOP_TO_DATE"
+                hint="COM_EASYSHOP_TO_DATE"
+                showTime="false"
+                numberOfMonths="2"
+                filter="user_utc"
+                onchange="this.form.submit();"
+        />
+    </fields>
+    <fields name="list">
+        <field type="hidden" name="fullordering"/>
+        <field
+                name="limit"
+                type="limitbox"
+                class="uk-select uk-width-small"
+                default="25"
+                label="COM_EASYSHOP_LIST_LIMIT"
+                description="COM_EASYSHOP_LIST_LIMIT_DESC"
+                onchange="this.form.submit();"
+        />
+    </fields>
+</form>

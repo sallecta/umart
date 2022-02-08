@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>mod_easyshop_categories</name>
+    <author>JoomTech Team</author>
+    <creationDate>Nov 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@joomtech.net</authorEmail>
+    <authorUrl>www.joomtech.net</authorUrl>
+    <version>1.4.1</version>
+    <description>MOD_EASYSHOP_CATEGORIES_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_easyshop_categories">mod_easyshop_categories.php</filename>
+        <filename>helper.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset
+                    name="basic"
+                    addfieldpath="/administrator/components/com_easyshop/models/fields">
+                <field
+                        name="source"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_SOURCE"
+                        default="category">
+                    <option value="category">COM_EASYSHOP_CATEGORY</option>
+                    <option value="brand">COM_EASYSHOP_BRAND</option>
+                </field>
+                <field
+                        name="base_category"
+                        type="category"
+                        label="MOD_EASYSHOP_CATEGORIES_BASE_CATEGORY"
+                        extension="com_easyshop.product"
+                        default="root"
+                        showon="source:category">
+                    <option value="root">MOD_EASYSHOP_CATEGORIES_ROOT</option>
+                </field>
+                <field
+                        name="base_brand"
+                        type="category"
+                        label="MOD_EASYSHOP_CATEGORIES_BASE_BRAND"
+                        extension="com_easyshop.brand"
+                        default="root"
+                        showon="source:brand">
+                    <option value="root">MOD_EASYSHOP_CATEGORIES_ROOT</option>
+                </field>
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="MOD_EASYSHOP_LAYOUT"
+                        description="MOD_EASYSHOP_CATEGORIES_LAYOUT_DESC"
+                        default="_:default"/>
+                <field
+                        name="includeChildren"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_INCLUDE_CHILDREN"
+                        class="uk-select"
+                        default="0"
+                        showon="layout:_:card"
+                        filter="intval">
+                    <option value="1">COM_EASYSHOP_YES</option>
+                    <option value="0">COM_EASYSHOP_NO</option>
+                </field>
+                <field
+                        name="widthMedium"
+                        type="number"
+                        label="COM_EASYSHOP_COLUMN_IN_ROW"
+                        description="COM_EASYSHOP_COLUMN_IN_ROW_DESC"
+                        default="4"
+                        showon="layout:_:card"
+                        filter="intval"/>
+                <field
+                        name="widthXSmall"
+                        type="number"
+                        label="COM_EASYSHOP_XSMALL_SCREEN"
+                        description="COM_EASYSHOP_XSMALL_SCREEN_DESC"
+                        showon="layout:_:card"/>
+                <field
+                        name="widthSmall"
+                        type="number"
+                        label="COM_EASYSHOP_SMALL_SCREEN"
+                        description="COM_EASYSHOP_SMALL_SCREEN_DESC"
+                        showon="layout:_:card"/>
+                <field
+                        name="widthLarge"
+                        type="number"
+                        label="COM_EASYSHOP_LARGE_SCREEN"
+                        description="COM_EASYSHOP_LARGE_SCREEN_DESC"
+                        default=""
+                        showon="layout:_:card"/>
+                <field
+                        name="widthXLarge"
+                        type="number"
+                        label="COM_EASYSHOP_XLARGE_SCREEN"
+                        description="COM_EASYSHOP_XLARGE_SCREEN_DESC"
+                        default=""
+                        showon="layout:_:card"/>
+                <field
+                        name="drop_width"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_AREA_WIDTH"
+                        description="MOD_EASYSHOP_CATEGORIES_AREA_WIDTH_DESC"
+                        default="large"
+                        showon="layout:_:meta">
+                    <option value="small">MOD_EASYSHOP_CATEGORIES_WIDTH_SMALL</option>
+                    <option value="medium">MOD_EASYSHOP_CATEGORIES_WIDTH_MEDIUM</option>
+                    <option value="large">MOD_EASYSHOP_CATEGORIES_WIDTH_LARGE</option>
+                    <option value="xlarge">MOD_EASYSHOP_CATEGORIES_WIDTH_XLARGE</option>
+                    <option value="xxlarge">MOD_EASYSHOP_CATEGORIES_WIDTH_XXLARGE</option>
+                </field>
+                <field
+                        name="accordion"
+                        type="switcher"
+                        label="MOD_EASYSHOP_CATEGORIES_ACCORDION"
+                        description="MOD_EASYSHOP_CATEGORIES_ACCORDION_DESC"
+                        default="1"
+                        filter="intval"
+                        showon="layout:_:default">
+                    <option value="1">COM_EASYSHOP_YES</option>
+                    <option value="0">COM_EASYSHOP_NO</option>
+                </field>
+                <field
+                        name="visible"
+                        type="switcher"
+                        label="MOD_EASYSHOP_CATEGORIES_ALWAYS_VISIBLE"
+                        description="MOD_EASYSHOP_CATEGORIES_ALWAYS_VISIBLE_DESC"
+                        default="1"
+                        filter="intval"
+                        showon="accordion:1[AND]layout:_:default">
+                    <option value="1">COM_EASYSHOP_YES</option>
+                    <option value="0">COM_EASYSHOP_NO</option>
+                </field>
+                <field
+                        name="card_layout"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_CARD_LAYOUT"
+                        showon="layout:_:meta"
+                        default="default">
+                    <option value="default">MOD_EASYSHOP_CATEGORIES_CARD_LAYOUT_DEFAULT</option>
+                    <option value="primary">MOD_EASYSHOP_CATEGORIES_CARD_LAYOUT_PRIMARY</option>
+                    <option value="secondary">MOD_EASYSHOP_CATEGORIES_CARD_LAYOUT_SECONDARY</option>
+                </field>
+                <field
+                        name="position"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_POSITION"
+                        showon="layout:_:meta"
+                        default="bottom-left">
+                    <option value="bottom-left">MOD_EASYSHOP_CATEGORIES_BOTTOM_LEFT</option>
+                    <option value="bottom-center">MOD_EASYSHOP_CATEGORIES_BOTTOM_CENTER</option>
+                    <option value="bottom-right">MOD_EASYSHOP_CATEGORIES_BOTTOM_RIGHT</option>
+                    <option value="bottom-justify">MOD_EASYSHOP_CATEGORIES_BOTTOM_JUSTIFY</option>
+                    <option value="top-left">MOD_EASYSHOP_CATEGORIES_TOP_LEFT</option>
+                    <option value="top-center">MOD_EASYSHOP_CATEGORIES_TOP_CENTER</option>
+                    <option value="top-right">MOD_EASYSHOP_CATEGORIES_TOP_RIGHT</option>
+                    <option value="top-justify">MOD_EASYSHOP_CATEGORIES_TOP_JUSTIFY</option>
+                    <option value="left-top">MOD_EASYSHOP_CATEGORIES_LEFT_TOP</option>
+                    <option value="left-center">MOD_EASYSHOP_CATEGORIES_LEFT_CENTER</option>
+                    <option value="left-bottom">MOD_EASYSHOP_CATEGORIES_LEFT_BOTTOM</option>
+                    <option value="right-top">MOD_EASYSHOP_CATEGORIES_RIGHT_TOP</option>
+                    <option value="right-center">MOD_EASYSHOP_CATEGORIES_RIGHT_CENTER</option>
+                    <option value="right-bottom">MOD_EASYSHOP_CATEGORIES_RIGHT_BOTTOM</option>
+                </field>
+                <field
+                        name="icon_direction"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_ICON_DIRECTION"
+                        showon="layout:_:meta"
+                        default="right">
+                    <option value="left">MOD_EASYSHOP_CATEGORIES_LEFT</option>
+                    <option value="right">MOD_EASYSHOP_CATEGORIES_RIGHT</option>
+                    <option value="up">MOD_EASYSHOP_CATEGORIES_UP</option>
+                    <option value="down">MOD_EASYSHOP_CATEGORIES_DOWN</option>
+                </field>
+                <field
+                        name="columns"
+                        type="integer"
+                        label="MOD_EASYSHOP_CATEGORIES_COLUMNS"
+                        first="1"
+                        step="1"
+                        last="5"
+                        default="2"
+                        filter="intval"
+                        showon="layout:_:meta[OR]layout:_:area"/>
+                <field
+                        name="count_products"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_COUNT_PRODUCTS"
+                        description="MOD_EASYSHOP_CATEGORIES_COUNT_PRODUCTS_DESC"
+                        default="1"
+                        filter="intval">
+                    <option value="1">COM_EASYSHOP_YES</option>
+                    <option value="0">COM_EASYSHOP_NO</option>
+                </field>
+                <field
+                        name="show_icon"
+                        type="list"
+                        label="MOD_EASYSHOP_CATEGORIES_SHOW_ICON"
+                        description="MOD_EASYSHOP_CATEGORIES_SHOW_ICON_DESC"
+                        default="1"
+                        filter="intval"
+                        showon="source:category">
+                    <option value="1">COM_EASYSHOP_YES</option>
+                    <option value="0">COM_EASYSHOP_NO</option>
+                </field>
+            </fieldset>
+            <fieldset
+                    name="advanced">
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea" rows="3"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field
+                        name="cache"
+                        type="list"
+                        default="1"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL
+                    </option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+                    </option>
+                </field>
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="static">
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

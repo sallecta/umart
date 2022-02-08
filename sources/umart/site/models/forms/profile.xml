@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="profile">
+        <field type="hidden" name="id" filter="intval"/>
+        <field
+                name="avatar"
+                type="Modal_Media"
+                label="COM_EASYSHOP_AVATAR"
+                thumb="false"
+                filter="EasyshopHelper::filterMediaImage"
+        />
+        <field
+                name="name"
+                type="text"
+                filter="string"
+                label="COM_EASYSHOP_NAME"
+                hint="COM_EASYSHOP_NAME"
+                required="true"
+                class="uk-input"
+                size="30"
+        />
+        <field
+                name="username"
+                type="text"
+                class="validate-username uk-input"
+                label="COM_EASYSHOP_USERNAME"
+                message="COM_EASYSHOP_PROFILE_USERNAME_MESSAGE"
+                size="30"
+                readonly="true"
+                disabled="true"
+        />
+        <field
+                name="password1"
+                type="password"
+                autocomplete="off"
+                class="validate-password uk-input"
+                label="COM_EASYSHOP_PROFILE_PASSWORD1"
+                filter="raw"
+                size="30"
+                validate="password"
+        />
+        <field
+                name="password2"
+                type="password"
+                autocomplete="off"
+                class="validate-password uk-input"
+                field="password1"
+                filter="raw"
+                label="COM_EASYSHOP_PROFILE_PASSWORD2"
+                message="COM_EASYSHOP_PROFILE_PASSWORD1_MESSAGE"
+                size="30"
+                validate="equals"
+        />
+
+        <field
+                name="email1"
+                type="email"
+                filter="string"
+                label="COM_EASYSHOP_PROFILE_EMAIL1"
+                message="COM_EASYSHOP_PROFILE_EMAIL1_MESSAGE"
+                size="30"
+                validate="email"
+                class="uk-input"
+                autocomplete="email"
+        />
+        <field
+                name="email2"
+                type="email"
+                field="email1"
+                filter="string"
+                label="COM_EASYSHOP_PROFILE_EMAIL2"
+                message="COM_EASYSHOP_PROFILE_EMAIL2_MESSAGE"
+                size="30"
+                validate="equals"
+                class="uk-input"
+        />
+        <field
+                name="timezone"
+                type="timezone"
+                filter="string"
+                label="COM_EASYSHOP_TIMEZONE"
+                description="COM_EASYSHOP_YOUR_TIMEZONE_DESC"
+                class="uk-select"
+        >
+            <option value="">COM_EASYSHOP_DEFAULT</option>
+        </field>
+        <field
+                name="secret_key"
+                type="toggle"
+                label="COM_EASYSHOP_SECRET_KEY"
+                description="COM_EASYSHOP_CUSTOMER_SECRET_KEY_DESC"
+                readonly="true"
+                class="uk-input"
+        />
+    </fieldset>
+</form>

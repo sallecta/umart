@@ -1,0 +1,25 @@
+@media (max-width: 529px) {
+    .jtui-tab > .uk-tab {
+        margin: 0;
+        display: block;
+    }
+
+    .jtui-tab > .uk-tab > li {
+        float: none;
+        display: block;
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .jtui-tab > .uk-tab > li > a {
+        border: 1px solid #ddd;
+        margin: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+
+    .jtui-tab > .uk-tab > li:not(:last-child):not(.uk-active) > a {
+        border-bottom: none;
+    }
+}
