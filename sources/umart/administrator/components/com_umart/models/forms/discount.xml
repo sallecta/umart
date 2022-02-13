@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS"
+    >
+        <field name="id" type="hidden" readonly="true"/>
+        <field
+                name="name"
+                type="text"
+                label="COM_UMART_NAME"
+                class="uk-input"
+                required="true"
+        />
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                class="uk-select"
+                filter="intval"
+                validate="options"
+                default="1"
+        >
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="type"
+                type="list"
+                label="COM_UMART_DISCOUNT_TYPE"
+                class="uk-select"
+                default="0"
+                required="true"
+                filter="intval"
+                validate="options"
+        >
+            <option value="0">COM_UMART_ON_PRODUCTS</option>
+            <option value="1">COM_UMART_ON_COUPON</option>
+            <option value="2">COM_UMART_ON_ORDER</option>
+        </field>
+        <field
+                name="coupon_code"
+                type="text"
+                label="COM_UMART_COUPON_CODE"
+                class="uk-input"
+                showon="type:1"
+        />
+        <field
+                name="coupon_type"
+                type="list"
+                label="COM_UMART_COUPON_TYPE"
+                class="uk-select"
+                showon="type:1"
+                default="1"
+                required="true"
+                validate="options"
+        >
+            <option value="0">COM_UMART_ON_PRODUCTS</option>
+            <option value="1">COM_UMART_ON_ORDER</option>
+        </field>
+        <field
+                name="limit"
+                type="number"
+                label="COM_UMART_LIMIT"
+                description="COM_UMART_LIMIT_DESC"
+                class="uk-input"
+                filter="intval"
+                min="-1"
+                default="-1"
+                showon="type:1"
+        />
+        <field
+                name="flat"
+                type="text"
+                label="COM_UMART_FLAT_AMOUNT"
+                class="uk-input"
+                filter="floatval"
+        />
+        <field
+                name="percentage"
+                type="text"
+                label="COM_UMART_PERCENTAGE_AMOUNT"
+                class="uk-input"
+                filter="intval"
+        />
+        <field
+                name="start_date"
+                type="FlatPicker"
+                label="COM_UMART_START_DATE"
+                filter="user_utc"
+                required="true"
+        />
+        <field
+                name="end_date"
+                type="FlatPicker"
+                label="COM_UMART_END_DATE"
+                filter="user_utc"
+                required="true"
+        />
+        <field
+                name="vendor_id"
+                type="hidden"
+                vendor="true"
+                label="COM_UMART_VENDOR"
+                default="0"
+                filter="unset"
+        />
+    </fieldset>
+    <fieldset
+            name="restrictions"
+            label="COM_UMART_RESTRICTIONS">
+        <field
+                name="user_groups"
+                type="usergrouplist"
+                label="COM_UMART_ACCESS_USER_GROUPS"
+                class="uk-select"
+                multiple="true"
+                filter="array"
+                validate="options"
+        />
+        <field
+                name="currencies"
+                type="currency"
+                label="COM_UMART_CURRENCIES"
+                class="uk-select"
+                multiple="true"
+                default=""
+                filter="array"
+                validate="options"
+        />
+        <field
+                name="categories"
+                type="category"
+                label="COM_UMART_CATEGORIES"
+                class="uk-select"
+                extension="com_umart.product"
+                multiple="true"
+                filter="array"
+                validate="options"
+        />
+        <field
+                name="include_sub_categories"
+                type="switcher"
+                label="COM_UMART_INCLUDE_SUB_CATEGORIES"
+                default="0"
+                filter="intval"
+                validate="options"
+                showon="categories!:"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="order_min_amount"
+                type="text"
+                label="COM_UMART_ORDER_MIN_AMOUNT"
+                class="uk-input"
+                filter="floatval"
+                showon="type:1,2"
+        />
+        <field
+                name="product_min_price"
+                type="number"
+                label="COM_UMART_PRODUCT_MIN_PRICE"
+                min="0"
+                class="uk-input"
+                filter="floatval"
+                showon="type:0,1"
+        />
+        <field
+                name="product_max_price"
+                type="number"
+                label="COM_UMART_PRODUCT_MAX_PRICE"
+                min="0"
+                class="uk-input"
+                filter="floatval"
+                showon="type:0,1"
+        />
+        <field
+                name="discount_max_price"
+                type="number"
+                label="COM_UMART_MAX_DISCOUNT_PRICE"
+                min="0"
+                class="uk-input"
+                filter="floatval"
+        />
+        <field
+                name="products"
+                type="modal_product"
+                label="COM_UMART_PRODUCTS"
+                multiple="true"
+                filter="array"
+                showon="type:0,1"
+        />
+        <field
+                name="zone_type"
+                type="list"
+                label="COM_UMART_DISCOUNT_BY_ZONE"
+                class="uk-select"
+                default="0"
+                filter="intval"
+                validate="options"
+                showon="type:1,2">
+            <option value="0">COM_UMART_ALL</option>
+            <option value="1">COM_UMART_SHIPPING_ADDRESS</option>
+            <option value="2">COM_UMART_BILLING_ADDRESS</option>
+        </field>
+        <field
+                name="zone_countries"
+                type="zone"
+                zone_type="country"
+                label="COM_UMART_COUNTRIES"
+                class="uk-select"
+                default=""
+                showon="zone_type:1,2"
+                multiple="true"
+                filter="array"
+        />
+        <field
+                name="zone_states"
+                type="zone"
+                zone_type="state"
+                parent_id="0"
+                label="COM_UMART_STATES"
+                class="uk-select"
+                default=""
+                showon="zone_type:1,2"
+                multiple="true"
+                filter="array"
+        />
+    </fieldset>
+    <fields name="params">
+        <fieldset
+                name="badge"
+                label="COM_UMART_PRODUCT_BADGE"
+        >
+            <field
+                    name="badge"
+                    type="list"
+                    label="COM_UMART_DISCOUNT_BADGE"
+                    description="COM_UMART_DISCOUNT_BADGE_DESC"
+                    class="uk-select"
+                    validate="options"
+                    default=""
+            >
+                <option value="">COM_UMART_NO</option>
+                <option value="image">COM_UMART_BADGE_IMAGE</option>
+                <option value="text">COM_UMART_BADGE_TEXT</option>
+            </field>
+            <field
+                    name="badge_image"
+                    type="Modal_Media"
+                    label="COM_UMART_BADGE_IMAGE"
+                    showon="badge:image"
+                    filter="UmartHelper::filterMediaImage"
+            />
+            <field
+                    name="badge_text"
+                    type="text"
+                    label="COM_UMART_BADGE_TEXT"
+                    class="uk-input"
+                    showon="badge:text"
+            />
+            <field
+                    name="badge_position"
+                    type="list"
+                    label="COM_UMART_BADGE_POSITION"
+                    class="uk-select"
+                    default="top-right"
+                    showon="badge!:"
+                    validate="options"
+            >
+                <option value="top-left">COM_UMART_TOP_LEFT</option>
+                <option value="top-right">COM_UMART_TOP_RIGHT</option>
+                <option value="top-center">COM_UMART_TOP_CENTER</option>
+                <option value="center">COM_UMART_CENTER</option>
+                <option value="center-left">COM_UMART_CENTER_LEFT</option>
+                <option value="center-right">COM_UMART_CENTER_RIGHT</option>
+                <option value="bottom-left">COM_UMART_BOTTOM_LEFT</option>
+                <option value="bottom-center">COM_UMART_BOTTOM_CENTER</option>
+                <option value="bottom-right">COM_UMART_BOTTOM_RIGHT</option>
+            </field>
+            <field
+                    name="badge_detail_position"
+                    type="list"
+                    label="COM_UMART_BADGE_DETAIL_POSITION"
+                    class="uk-select"
+                    showon="badge!:"
+                    validate="options"
+            >
+                <option value="">COM_UMART_NO_DISPLAY</option>
+                <option value="top-left">COM_UMART_TOP_LEFT</option>
+                <option value="top-right">COM_UMART_TOP_RIGHT</option>
+                <option value="top-center">COM_UMART_TOP_CENTER</option>
+                <option value="center">COM_UMART_CENTER</option>
+                <option value="center-left">COM_UMART_CENTER_LEFT</option>
+                <option value="center-right">COM_UMART_CENTER_RIGHT</option>
+                <option value="bottom-left">COM_UMART_BOTTOM_LEFT</option>
+                <option value="bottom-center">COM_UMART_BOTTOM_CENTER</option>
+                <option value="bottom-right">COM_UMART_BOTTOM_RIGHT</option>
+            </field>
+            <field
+                    name="badge_overlay"
+                    type="list"
+                    label="COM_UMART_OVERLAY"
+                    class="uk-select"
+                    showon="badge!:"
+                    validate="options"
+            >
+                <option value="">COM_UMART_NO</option>
+                <option value="default">COM_UMART_DEFAULT</option>
+                <option value="primary">COM_UMART_PRIMARY</option>
+            </field>
+            <field
+                    name="badge_visibility"
+                    type="list"
+                    label="COM_UMART_VISIBILITY"
+                    class="uk-select"
+                    showon="badge!:[AND]badge_overlay!:"
+                    validate="options"
+            >
+                <option value="">COM_UMART_NO</option>
+                <option value="dark">COM_UMART_DARK</option>
+                <option value="light">COM_UMART_LIGHT</option>
+            </field>
+        </fieldset>
+        <fieldset
+                name="coupon"
+                label="COM_UMART_COUPON_ACTION"
+        >
+            <field
+                    type="note"
+                    description="COM_UMART_COUPON_ACTION_NOTE"
+            />
+            <field
+                    name="handle_on_order_status"
+                    type="OrderStatus"
+                    label="COM_UMART_COUPON_ON_ORDER_CHANGE_STATUS"
+                    description="COM_UMART_COUPON_ON_ORDER_CHANGE_STATUS_DESC"
+                    class="uk-select"
+                    excludes="-2,5"
+                    multiple="true"
+                    validate="options"
+            />
+            <field
+                    name="handle_on_order_paid"
+                    type="switcher"
+                    label="COM_UMART_COUPON_ON_ORDER_PAID"
+                    description="COM_UMART_COUPON_ON_ORDER_PAID_DESC"
+                    default="0"
+                    filter="intval"
+                    validate="options"
+            >
+                <option value="1">COM_UMART_YES</option>
+                <option value="0">COM_UMART_NO</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

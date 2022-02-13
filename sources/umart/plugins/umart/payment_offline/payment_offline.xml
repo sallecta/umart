@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="umart" method="upgrade">
+    <name>plg_umart_payment_offline</name>
+    <author>JoomTech team, Sallecta</author>
+    <creationDate>OCT 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_UMART_PAYMENT_OFFLINE_DESCRIPTION</description>
+    <files>
+        <filename plugin="payment_offline">payment_offline.php</filename>
+        <filename>bank-transfer.png</filename>
+        <filename>card.png</filename>
+        <filename>cash-on-delivery.png</filename>
+        <folder>language</folder>
+        <folder>layouts</folder>
+    </files>
+    <umart>
+        <fields name="params">
+            <fieldset
+                    name="payment_setting"
+                    label="COM_UMART_PAYMENT_SETTING">
+                <field name="is_card" type="hidden" value="1"/>
+                <field
+                        name="umart_payment_offline_type"
+                        type="list"
+                        label="PLG_UMART_PAYMENT_OFFLINE_TYPE"
+                        description="PLG_UMART_PAYMENT_OFFLINE_TYPE_DESC"
+                        class="uk-select"
+                        default="cod">
+                    <option value="cod">PLG_UMART_PAYMENT_OFFLINE_CASH_ON_DELIVERY</option>
+                    <option value="bank_transfer">PLG_UMART_PAYMENT_OFFLINE_BANK_TRANSFER</option>
+                    <option value="collect_card">PLG_UMART_PAYMENT_OFFLINE_COLLECT_CARD</option>
+                </field>
+                <field
+                        name="card_show_holder_name"
+                        type="switcher"
+                        label="COM_UMART_SHOW_CARD_HOLDER_NAME"
+                        default="1"
+                        filter="intval"
+                        showon="umart_payment_offline_type:collect_card">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="accepted_cards"
+                        type="card"
+                        label="COM_UMART_ACCEPTED_CARDS"
+                        description="COM_UMART_ACCEPTED_CARDS_DESC"
+                        class="uk-select"
+                        multiple="true"
+                        showon="umart_payment_offline_type:collect_card"/>
+            </fieldset>
+        </fields>
+    </umart>
+</extension>

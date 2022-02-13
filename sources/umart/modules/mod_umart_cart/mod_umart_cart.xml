@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>mod_umart_cart</name>
+    <author>JoomTech Team, Sallecta</author>
+    <creationDate>July 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_UMART_CART_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_umart_cart">mod_umart_cart.php</filename>
+        <filename>helper.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset
+                    name="basic"
+                    addfieldpath="/administrator/components/com_umart/models/fields">
+                <field
+                        name="dropdown_mode"
+                        type="list"
+                        label="MOD_UMART_CART_DROPDOWN_MODE"
+                        default="">
+                    <option value="">MOD_UMART_CART_NO_USE_DROPDOWN</option>
+                    <option value="hover">MOD_UMART_CART_HOVER</option>
+                    <option value="click">MOD_UMART_CART_CLICK</option>
+                </field>
+                <field
+                        name="dropdown_display"
+                        type="list"
+                        label="MOD_UMART_CART_DROPDOWN_DISPLAY"
+                        default=""
+                        showon="dropdown_mode!:">
+                    <option value="">MOD_UMART_CART_NORMAL</option>
+                    <option value="bottom-center">MOD_UMART_CART_CENTER</option>
+                    <option value="bottom-justify">MOD_UMART_CART_JUSTIFY</option>
+                </field>
+                <field
+                        name="your_cart_label"
+                        type="switcher"
+                        label="MOD_UMART_CART_YOUR_CART_LABEL"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="fly_to_cart"
+                        type="switcher"
+                        label="MOD_UMART_CART_FLY_TO_CART"
+                        default="0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="fly_to_cart_duration"
+                        type="number"
+                        label="MOD_UMART_CART_FLY_TO_CART_DURATION"
+                        default="1000"
+                        showon="fly_to_cart:1"/>
+                <field
+                        name="sub_total"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_SUBTOTAL"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="taxes"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_TAXES"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="discount"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_DISCOUNT"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="shipping"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_SHIPPING"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="payment_fee"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_PAYMENT_FEE"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="grand_total"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_GRAND_TOTAL"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="checkout_button"
+                        type="switcher"
+                        label="MOD_UMART_CART_SHOW_CHECKOUT_BUTTON"
+                        default="1">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+            </fieldset>
+            <fieldset
+                    name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea" rows="3"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field
+                        name="cache"
+                        type="hidden"
+                        default="0"
+                        value="0"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

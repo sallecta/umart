@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="search"
+            addfieldpath="/administrator/components/com_umart/models/fields">
+        <field
+                name="q"
+                type="text"
+                label="COM_UMART_SEARCH_BY_NAME"
+                hint="COM_UMART_SEARCH_BY_NAME"
+                id="es-search-q"
+                class="uk-input es-search-q"
+                labelclass="uk-form-label"/>
+        <field
+                name="category"
+                type="UmartCategory"
+                label="COM_UMART_CATEGORY_SELECT"
+                extension="com_umart.product"
+                show_empty="true"
+                id="es-search-category"
+                class="uk-select not-chosen"
+                labelclass="uk-form-label">
+            <option value="">COM_UMART_CATEGORY_SELECT</option>
+        </field>
+        <field
+                name="brand"
+                type="category"
+                label="COM_UMART_BRAND_SELECT"
+                extension="com_umart.brand"
+                id="es-search-brand"
+                class="uk-select not-chosen"
+                labelclass="uk-form-label">
+            <option value="">COM_UMART_BRAND_SELECT</option>
+        </field>
+        <field
+                name="range"
+                type="rangeByPrice"
+                label="COM_UMART_RANGE_SELECT"
+                id="es-search-range"
+                class="uk-select not-chosen"
+                labelclass="uk-form-label">
+            <option value="">COM_UMART_RANGE_PRICES</option>
+        </field>
+    </fieldset>
+</form>

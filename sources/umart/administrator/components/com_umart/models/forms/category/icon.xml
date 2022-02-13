@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields
+            name="params"
+            label="COM_UMART_PARAMS">
+        <fieldset
+                name="basic"
+                addfieldpath="/administrator/components/com_umart/models/fields">
+            <field
+                    name="icon"
+                    type="icon"
+                    label="COM_UMART_ICON_SELECT"
+                    class="uk-input"/>
+        </fieldset>
+    </fields>
+</form>

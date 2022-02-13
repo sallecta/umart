@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>mod_umart_search</name>
+    <author>JoomTech Team, Sallecta</author>
+    <creationDate>April 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_UMART_SEARCH_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_umart_search">mod_umart_search.php</filename>
+        <filename>helper.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset
+                    name="basic"
+                    addfieldpath="/administrator/components/com_umart/models/fields">
+                <field
+                        name="form_layout"
+                        type="list"
+                        label="COM_UMART_FORM_LAYOUT"
+                        default="stack">
+                    <option value="stacked">COM_UMART_STACKED</option>
+                    <option value="horizontal">COM_UMART_HORIZONTAL</option>
+                    <option value="inline">COM_UMART_INLINE</option>
+                </field>
+                <field
+                        name="hide_label"
+                        type="switcher"
+                        label="COM_UMART_HIDE_LABEL"
+                        default="1"
+                        filter="intval"
+                        showon="form_layout:inline">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="search_by_category"
+                        type="switcher"
+                        label="COM_UMART_SEARCH_BY_CATEGORY"
+                        default="1"
+                        filter="intval">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="base_category_id"
+                        type="UmartCategory"
+                        label="COM_UMART_CATEGORY_SELECT"
+                        published="1"
+                        extension="com_umart.product"
+                        showon="search_by_category:1">
+                    <option value="">JALL</option>
+                </field>
+                <field
+                        name="search_by_brand"
+                        type="switcher"
+                        label="COM_UMART_SEARCH_BY_BRAND"
+                        default="1"
+                        filter="intval">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="range_by_price"
+                        type="switcher"
+                        label="COM_UMART_RANGE_PRICES"
+                        default="1"
+                        filter="intval">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+            </fieldset>
+            <fieldset
+                    name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea" rows="3"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field
+                        name="cache"
+                        type="list"
+                        default="1"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option
+                            value="1">JGLOBAL_USE_GLOBAL
+                    </option>
+                    <option
+                            value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+                    </option>
+                </field>
+
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="static">
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

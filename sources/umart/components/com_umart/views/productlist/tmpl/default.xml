@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_UMART_PRODUCT_LIST">
+        <message>
+            <![CDATA[COM_UMART_PRODUCT_LIST_DESC]]>
+        </message>
+    </layout>
+
+    <fields name="request">
+        <fieldset name="request" addfieldpath="/administrator/components/com_umart/models/fields">
+            <field
+                    name="id"
+                    type="UmartCategory"
+                    label="COM_UMART_CATEGORY_SELECT"
+                    published="1"
+                    extension="com_umart.product"
+                    required="true"/>
+        </fieldset>
+    </fields>
+</metadata>

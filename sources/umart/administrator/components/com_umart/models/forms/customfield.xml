@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="name_alias">
+        <field
+                name="name"
+                type="text"
+                label="COM_UMART_NAME"
+                size="30"
+                class="uk-input"
+                hint="COM_UMART_NAME"
+                required="true"
+                UmartMultiLanguage="true"
+        />
+        <field
+                name="alias"
+                type="text"
+                label="COM_UMART_ALIAS"
+                description="JFIELD_ALIAS_DESC"
+                class="uk-input"
+                hint="COM_UMART_PRODUCT_ALIAS_HINT"
+                size="40"
+        />
+    </fieldset>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS"
+            addfieldpath="/administrator/components/com_categories/models/fields"
+    >
+        <field name="id" type="hidden" readonly="true"/>
+        <field
+                name="group_id"
+                type="category"
+                label="COM_UMART_GROUP"
+                validate="options"
+                class="uk-select"
+                extension="com_umart.product.customfield"
+                required="true"
+                filter="intval"
+        >
+            <option value="">COM_UMART_GROUP_SELECT</option>
+        </field>
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                class="uk-select"
+                filter="intval"
+                validate="options"
+                default="1"
+        >
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="type"
+                type="list"
+                label="COM_UMART_TYPE"
+                validate="options"
+                class="uk-select"
+                filter="string"
+                default=""
+                required="true"
+        >
+            <option value="">COM_UMART_TYPE_SELECT</option>
+            <option value="text">COM_UMART_TYPE_TEXT</option>
+            <option value="callname">COM_UMART_USER_CALL_NAME</option>
+            <option value="address">COM_UMART_ADDRESS</option>
+            <option value="email">COM_UMART_TYPE_EMAIL</option>
+            <option value="list">COM_UMART_TYPE_DROPDOWN</option>
+            <option value="radio">COM_UMART_TYPE_RADIO</option>
+            <option value="checkbox">COM_UMART_TYPE_CHECKBOX</option>
+            <option value="checkboxes">COM_UMART_TYPE_CHECKBOXES</option>
+            <option value="textarea">COM_UMART_TYPE_TEXTAREA</option>
+            <option value="editor">COM_UMART_TYPE_EDITOR</option>
+            <option value="flatpicker">COM_UMART_TYPE_DATE_PICKER</option>
+            <option value="zone_country">COM_UMART_TYPE_ZONE_COUNTRY</option>
+            <option value="zone_state">COM_UMART_TYPE_ZONE_STATE</option>
+            <option value="subzone">COM_UMART_SUBZONE</option>
+            <option value="vat">COM_UMART_VAT</option>
+            <option value="colors">COM_UMART_COLORS</option>
+            <option value="inline">COM_UMART_INLINE</option>
+        </field>
+        <field
+                name="field_name"
+                type="text"
+                label="COM_UMART_FIELD_NAME"
+                class="uk-input"
+        />
+        <field
+                name="checkout_field"
+                type="switcher"
+                label="COM_UMART_CHECKOUT_FIELD"
+                description="COM_UMART_CHECKOUT_FIELD_DESC"
+                validate="options"
+                default="0"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="required"
+                type="switcher"
+                label="COM_UMART_REQUIRED"
+                validate="options"
+                default="0"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="showon"
+                type="list"
+                label="COM_UMART_SHOW_ON"
+                class="uk-select"
+                default="-1"
+                validate="options"
+        >
+            <option value="-1">JALL</option>
+            <option value="1">JADMINISTRATOR</option>
+            <option value="0">JSITE</option>
+        </field>
+        <field
+                name="attributes"
+                type="hidden"
+                label="COM_UMART_CUSTOMFIELD_ATTRIBUTES"
+                description="COM_UMART_CUSTOMFIELD_ATTRIBUTES_DESC"
+                class="uk-textarea"
+                rows="3"
+                cols="15"
+                filter="string"
+        />
+        <field
+                name="zone_country_id"
+                type="zone"
+                label="COM_UMART_FILTER_COUNTRY"
+                class="uk-select"
+                filter="intval"
+                validate="options"
+                zone_type="country"
+        />
+        <field
+                name="zone_state_id"
+                type="zone"
+                label="COM_UMART_FILTER_STATE"
+                class="uk-select"
+                zone_type="state"
+                validate="options"
+                filter="intval"
+                parent_id="0"
+        />
+        <field
+                name="default_value"
+                type="textarea"
+                label="COM_UMART_DEFAULT_VALUE"
+                class="uk-textarea"
+                filter="html"
+        />
+        <field
+                name="vendor_id"
+                type="hidden"
+                label="COM_UMART_VENDOR_SELECT"
+                hint="COM_UMART_VENDOR_SELECT"
+                onchange="this.form.submit();"
+                default=""
+        />
+    </fieldset>
+    <fields
+            name="params"
+            label="COM_UMART_PARAMS"
+    >
+        <fieldset
+                name="options"
+                label="COM_UMART_OPTIONS"
+        >
+            <field
+                    name="call_name_type"
+                    type="list"
+                    label="COM_UMART_NAME_TYPE"
+                    class="uk-select"
+                    default="1"
+                    validate="options"
+                    filter="intval">
+                <option value="0">COM_UMART_FULL_NAME</option>
+                <option value="1">COM_UMART_SPLIT_NAME</option>
+            </field>
+            <field
+                    name="address_line_2"
+                    type="switcher"
+                    label="COM_UMART_ADDRESS2"
+                    default="1"
+                    validate="options"
+                    filter="intval">
+                <option value="1">COM_UMART_YES</option>
+                <option value="0">COM_UMART_NO</option>
+            </field>
+            <field
+                    name="render_form_class"
+                    type="text"
+                    label="COM_UMART_RENDER_FORM_CLASS"
+                    class="uk-input"
+            />
+            <field
+                    name="render_display_class"
+                    type="text"
+                    label="COM_UMART_RENDER_DISPLAY_CLASS"
+                    class="uk-input"
+            />
+            <field
+                    name="placeholder"
+                    type="text"
+                    label="COM_UMART_PLACEHOLDER"
+                    class="uk-input"
+            />
+            <field
+                    name="hiddenLabel"
+                    type="switcher"
+                    label="COM_UMART_HIDE_LABEL"
+                    filter="intval"
+                    size="1"
+                    validate="options"
+                    default="0"
+            >
+                <option value="1">COM_UMART_YES</option>
+                <option value="0">COM_UMART_NO</option>
+            </field>
+            <field
+                    name="multiple"
+                    type="switcher"
+                    label="COM_UMART_TYPE_DROPDOWN_MULTIPLE"
+                    filter="intval"
+                    validate="options"
+                    default="0"
+            >
+                <option value="1">COM_UMART_YES</option>
+                <option value="0">COM_UMART_NO</option>
+            </field>
+            <field
+                    name="rows"
+                    type="text"
+                    label="COM_UMART_ROWS"
+                    class="uk-input"
+                    filter="intval"
+                    default="5"
+            />
+            <field
+                    name="cols"
+                    type="text"
+                    label="COM_UMART_COLS"
+                    class="uk-input"
+                    filter="intval"
+                    default="15"
+            />
+            <field
+                    name="displayLayout"
+                    type="switcher"
+                    label="COM_UMART_DISPLAY_LAYOUT"
+                    validate="options"
+                    default="text"
+            >
+                <option value="text">COM_UMART_TEXT</option>
+                <option value="color">COM_UMART_COLOR</option>
+            </field>
+            <field
+                    name="options"
+                    type="OptionRepeat"
+                    label="COM_UMART_OPTIONS"
+                    hiddenLabel="true"
+                    labelclass="uk-hidden"
+                    filter="UmartHelper::filterOption"
+            />
+            <field
+                    name="showTime"
+                    type="switcher"
+                    label="COM_UMART_SHOW_TIME"
+                    default="1"
+            >
+                <option value="1">COM_UMART_YES</option>
+                <option value="0">COM_UMART_NO</option>
+            </field>
+            <field
+                    name="mode"
+                    type="list"
+                    label="COM_UMART_PICKER_MODE"
+                    class="uk-select"
+                    default="single"
+                    validate="options"
+            >
+                <option value="single">COM_UMART_SINGLE_MODE</option>
+                <option value="multiple">COM_UMART_MULTIPLE_MODE</option>
+                <option value="range">COM_UMART_RANGE_MODE</option>
+            </field>
+            <field
+                    name="numberOfMonths"
+                    type="number"
+                    label="COM_UMART_NUMBER_OF_MONTHS"
+                    class="uk-input"
+                    filter="uint"
+                    default="1"
+            />
+            <field
+                    name="minDate"
+                    type="text"
+                    label="COM_UMART_MIN_DATE"
+                    description="COM_UMART_MIN_DATE_DESC"
+                    class="uk-input"
+            />
+            <field
+                    name="maxDate"
+                    type="text"
+                    label="COM_UMART_MAX_DATE"
+                    description="COM_UMART_MAX_DATE_DESC"
+                    class="uk-input"
+            />
+            <field
+                    name="minTime"
+                    type="text"
+                    label="COM_UMART_MIN_TIME"
+                    description="COM_UMART_MIN_TIME_DESC"
+                    class="uk-input"
+                    showon="showTime:1"
+            />
+            <field
+                    name="maxTime"
+                    type="text"
+                    label="COM_UMART_MAX_TIME"
+                    description="COM_UMART_MAX_TIME_DESC"
+                    class="uk-input"
+                    showon="showTime:1"
+            />
+            <field
+                    name="disableDate"
+                    type="textarea"
+                    label="COM_UMART_DISABLE_DATE"
+                    description="COM_UMART_DISABLE_DATE_DESC"
+                    class="uk-textarea"
+                    cols="15"
+                    rows="3"
+           />
+            <field
+                    name="user_access_groups"
+                    type="usergrouplist"
+                    label="COM_UMART_ACCESS_USER_GROUPS"
+                    class="uk-select"
+                    multiple="true"
+            />
+            <field
+                    name="validate_regex_pattern"
+                    type="input"
+                    label="COM_UMART_VALIDATE_REGEX_PATTERN"
+                    description="COM_UMART_VALIDATE_REGEX_PATTERN_DESC"
+                    class="uk-input"
+            />
+            <field
+                    name="validate_regex_message"
+                    type="textarea"
+                    label="COM_UMART_WARNING_MESSAGE"
+                    class="uk-textarea"
+                    rows="5"
+                    cols="50"
+            />
+            <field
+                    name="pricingLabel"
+                    type="text"
+                    label="COM_UMART_PRICING_LABEL"
+                    description="COM_UMART_PRICING_LABEL_DESC"
+                    class="uk-input"
+                    UmartMultiLanguage="true"
+            />
+            <field
+                    name="taxes"
+                    type="tax"
+                    label="COM_UMART_TAXES"
+                    class="uk-select"
+                    multiple="true"
+                    validate="options"
+                    showon="pricingLabel!:"
+            />
+            <field
+                    name="pricingPattern"
+                    type="OptionRepeat"
+                    label="COM_UMART_PRICING_PATTERN"
+                    filter="UmartHelper::filterOption"
+                    showon="pricingLabel!:"
+                    hintValue="COM_UMART_VALUE"
+                    hintText="COM_UMART_PRICE"
+            />
+        </fieldset>
+    </fields>
+</form>

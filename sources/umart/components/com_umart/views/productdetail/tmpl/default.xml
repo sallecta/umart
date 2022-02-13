@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<metadata>
+    <layout title="COM_UMART_PRODUCT_SINGLE">
+        <message>
+            <![CDATA[COM_UMART_PRODUCT_SINGLE_DESC]]>
+        </message>
+    </layout>
+
+    <fields name="request">
+        <fieldset name="request" addfieldpath="/administrator/components/com_umart/models/fields">
+            <field
+                    name="id"
+                    type="modal_product"
+                    label="COM_UMART_PRODUCT_SELECT"
+                    filter="intval"
+                    required="true"/>
+        </fieldset>
+    </fields>
+</metadata>

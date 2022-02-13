@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="editors-xtd" method="upgrade">
+    <name>plg_editors_xtd_umart_image</name>
+    <author>JoomTech Team, Sallecta</author>
+    <creationDate>April 2019</creationDate>
+    <copyright>GNU General Public License version 2 or later; see LICENSE.txt</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_EDITORS_XTD_UMART_IMAGE_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="umart_image">umart_image.php</filename>
+        <folder>language</folder>
+    </files>
+</extension>

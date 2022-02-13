@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields
+            name="params"
+            label="COM_UMART_PARAMS">
+        <fieldset name="payment_setting">
+            <field
+                    name="payment_success_message"
+                    type="textarea"
+                    label="COM_UMART_PAYMENT_SUCCESS_MESSAGE"
+                    description="COM_UMART_PAYMENT_SUCCESS_MESSAGE_DESC"
+                    filter="safehtml"
+                    cols="50"
+                    rows="5"
+                    class="uk-textarea"/>
+        </fieldset>
+    </fields>
+</form>

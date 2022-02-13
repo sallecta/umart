@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields
+            name="params"
+            label="COM_UMART_PARAMS">
+        <fieldset name="assigns" label="COM_UMART_CATEGORIES_ASSIGN">
+            <field
+                    name="product_categories"
+                    type="category"
+                    label="COM_UMART_CATEGORIES_ASSIGN"
+                    description="COM_UMART_CATEGORIES_ASSIGN_DESC"
+                    class="uk-select"
+                    extension="com_umart.product"
+                    multiple="true"
+                    validate="options"/>
+            <field
+                    name="fields_output_layout"
+                    type="list"
+                    label="COM_UMART_FIELDS_OUTPUT_LAYOUT"
+                    description="COM_UMART_FIELDS_OUTPUT_LAYOUT_DESC"
+                    class="uk-select"
+                    default="table"
+                    validate="options">
+                <option value="table">COM_UMART_LAYOUT_TABLE</option>
+                <option value="description">COM_UMART_DESCRIPTION_LIST</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

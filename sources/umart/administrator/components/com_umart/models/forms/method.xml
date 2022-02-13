@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS"
+    >
+        <field name="id" type="hidden" readonly="true"/>
+        <field name="plugin_id" type="hidden" readonly="true"/>
+        <field
+                name="name"
+                type="text"
+                label="COM_UMART_NAME"
+                class="uk-input"
+                required="true"
+                UmartMultiLanguage="true"
+        />
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                class="uk-select"
+                filter="intval"
+                validate="options"
+                default="1"
+        >
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="order_status"
+                type="OrderStatus"
+                label="COM_UMART_METHOD_ORDER_STATUS"
+                description="COM_UMART_METHOD_ORDER_STATUS_DESC"
+                class="uk-select"
+                excludes="-2,0,5"
+                validate="options"
+                default="0"
+        >
+            <option value="0">COM_UMART_METHOD_ORDER_STATUS_SELECT</option>
+        </field>
+        <field
+                name="vendor_id"
+                type="hidden"
+                label="COM_UMART_VENDOR"
+                vendor="true"
+                default="0"
+                filter="unset"
+        />
+        <field
+                name="is_default"
+                type="switcher"
+                label="COM_UMART_DEFAULT"
+                default="0"
+                filter="intval"
+                validate="options"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="show_name"
+                type="switcher"
+                label="COM_UMART_SHOW_NAME"
+                default="1"
+                filter="intval"
+                validate="options"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="flat_fee"
+                type="number"
+                label="COM_UMART_FLAT_FEE"
+                description="COM_UMART_FLAT_FEE_DESC"
+                class="uk-input"
+                min="0.00"
+                default="0.00"
+                filter="floatval"
+        />
+        <field
+                name="percentage_fee"
+                type="number"
+                label="COM_UMART_PERCENTAGE_FEE"
+                description="COM_UMART_PERCENTAGE_FEE_DESC"
+                class="uk-input"
+                min="0"
+                step="5"
+                default="0"
+                filter="floatval"
+        />
+        <field
+                name="taxes"
+                type="tax"
+                label="COM_UMART_TAXES"
+                class="uk-select"
+                multiple="true"
+                validate="options"
+                showon="flat_fee!:,0[OR]percentage_fee!:,0"
+        />
+        <field
+                name="image"
+                type="Modal_Media"
+                label="COM_UMART_IMAGE"
+                description="COM_UMART_PLUGIN_IMAGE_DESC"
+                filter="UmartHelper::filterMediaImage"/>
+        <field
+                name="description_type"
+                type="list"
+                label="COM_UMART_METHOD_DESCRIPTION_TYPE"
+                description="COM_UMART_METHOD_DESCRIPTION_TYPE_DESC"
+                class="uk-select"
+                default="0"
+                filter="intval"
+                validate="options"
+        >
+            <option value="0">COM_UMART_METHOD_DESCRIPTION_NONE</option>
+            <option value="1">COM_UMART_METHOD_DESCRIPTION_TIP</option>
+            <option value="2">COM_UMART_METHOD_DESCRIPTION_STACK</option>
+        </field>
+        <field
+                name="description"
+                type="textarea"
+                label="COM_UMART_DESCRIPTION"
+                filter="safehtml"
+                cols="50"
+                rows="5"
+                class="uk-textarea"
+                showon="description_type:1,2"
+                UmartMultiLanguage="true"
+        />
+        <field
+                name="language"
+                type="contentlanguage"
+                label="COM_UMART_LANGUAGE"
+                class="uk-select"
+                validate="options"
+                default="*">
+            <option value="*">JALL</option>
+        </field>
+    </fieldset>
+    <fields name="params">
+        <fieldset
+                name="acl"
+                label="COM_UMART_ACCESS"
+        >
+            <field
+                    name="access_user_groups"
+                    type="usergrouplist"
+                    label="COM_UMART_USER_GROUPS"
+                    class="uk-select uk-height-medium"
+                    multiple="true"
+            />
+        </fieldset>
+    </fields>
+</form>

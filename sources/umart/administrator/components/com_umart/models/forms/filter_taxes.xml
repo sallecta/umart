@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_UMART_FILTER_SEARCH"
+                description="COM_UMART_FILTER_SEARCH_DESC"
+                class="uk-input"
+                hint="JSEARCH_FILTER"/>
+        <field
+                name="published"
+                type="list"
+                label="COM_UMART_FILTER_PUBLISHED"
+                class="uk-select"
+                onchange="this.form.submit();">
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+            <option value="1">COM_UMART_PUBLISHED</option>
+            <option value="0">COM_UMART_UNPUBLISHED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <field
+                name="vendor_id"
+                type="hidden"
+                label="COM_UMART_VENDOR"
+                hint="COM_UMART_VENDOR_SELECT"
+                onchange="this.form.submit();"/>
+    </fields>
+    <fields name="list">
+        <field type="hidden" name="fullordering"/>
+        <field
+                name="limit"
+                type="limitbox"
+                class="uk-select umartui_width-small"
+                default="25"
+                label="COM_UMART_LIST_LIMIT"
+                description="COM_UMART_LIST_LIMIT_DESC"
+                onchange="this.form.submit();"/>
+    </fields>
+</form>

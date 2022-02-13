@@ -1,0 +1,1404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="global"
+            label="COM_UMART_CONFIG_GLOBAL"
+            addfieldpath="/administrator/components/com_umart/models/fields"
+    >
+        <field
+                name="list_limit"
+                type="text"
+                label="COM_UMART_LIST_LIMIT"
+                description="COM_UMART_LIST_LIMIT_DESC"
+                class="uk-input"
+                default="15,25,50,75,100"
+        />
+        <field
+                name="weight_unit"
+                type="text"
+                label="COM_UMART_PRODUCT_WEIGHT_UNIT"
+                description="COM_UMART_PRODUCT_WEIGHT_UNIT_DESC"
+                class="uk-input"
+                cols="25"
+                rows="5"
+                default="kg,g,mg,lb,oz,ozt"
+        />
+        <field
+                name="dimension_unit"
+                type="text"
+                label="COM_UMART_PRODUCT_DIMENSION_UNIT"
+                description="COM_UMART_PRODUCT_DIMENSION_UNIT_DESC"
+                class="uk-input"
+                cols="25"
+                rows="5"
+                default="m,dm,cm,mm,in,ft,yd"
+        />
+        <field
+                name="php_date_format"
+                type="text"
+                label="COM_UMART_PHP_DATE_FORMAT"
+                class="uk-input"
+                required="true"
+                default="Y-m-d"
+        />
+        <field
+                name="php_time_format"
+                type="text"
+                label="COM_UMART_PHP_TIME_FORMAT"
+                class="uk-input"
+                required="true"
+                default="H:i:s"
+        />
+        <field
+                name="zone_display"
+                type="switcher"
+                label="COM_UMART_ZONE_DISPLAY"
+                description="COM_UMART_ZONE_DISPLAY_DESC"
+                class="uk-select"
+                default="1"
+        >
+            <option value="1">COM_UMART_ZONE_DISPLAY_NAME_N_ENGLISH_NAME</option>
+            <option value="2">COM_UMART_NAME</option>
+            <option value="3">COM_UMART_ZONE_DISPLAY_ENGLISH_NAME</option>
+        </field>
+
+        <field
+                name="country_flag_emoji"
+                type="switcher"
+                label="COM_UMART_COUNTRY_DISPLAY_FLAG_EMOJI"
+                filter="intval"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+                name="hide_product_off_sale"
+                type="switcher"
+                label="COM_UMART_PRODUCT_HIDE_OFF_SALE"
+                description="COM_UMART_PRODUCT_HIDE_OFF_SALE_DESC"
+                filter="intval"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="multi_currencies_mode"
+                type="switcher"
+                label="COM_UMART_MULTI_CURRENCIES_MODE"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="show_quantity_box"
+                type="switcher"
+                label="COM_UMART_SHOW_QUANTITY_BOX"
+                description="COM_UMART_SHOW_QUANTITY_BOX_DESC"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="cart_button_type"
+                type="switcher"
+                label="COM_UMART_ADD_TO_CART_BUTTON_TYPE"
+                description="COM_UMART_ADD_TO_CART_BUTTON_TYPE_DESC"
+                class="uk-select"
+                default="text_n_icon"
+        >
+            <option value="text_n_icon">COM_UMART_TEXT_N_ICON</option>
+            <option value="text_only">COM_UMART_TEXT_ONLY</option>
+            <option value="icon_only">COM_UMART_ICON_ONLY</option>
+            <option value="icon_group">COM_UMART_ICON_GROUP</option>
+        </field>
+        <field
+                name="disable_btn_on_zero"
+                type="switcher"
+                label="COM_UMART_DISABLE_BTN_ON_ZERO"
+                description="COM_UMART_DISABLE_BTN_ON_ZERO_DESC"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="zero_as_free"
+                type="switcher"
+                label="COM_UMART_ZERO_AS_FREE"
+                description="COM_UMART_ZERO_AS_FREE_DESC"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="price_include_taxes"
+                type="switcher"
+                label="COM_UMART_PRODUCT_PRICE_INCLUDE_TAXES"
+                default="0"
+                validate="options"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="cart_modal_type"
+                type="switcher"
+                label="COM_UMART_CART_MODAL"
+                description="COM_UMART_CART_MODAL_DESC"
+                class="uk-select"
+                default="detail"
+        >
+            <option value="detail">COM_UMART_CART_MODAL_DETAIL</option>
+            <option value="simple">COM_UMART_CART_MODAL_SIMPLE</option>
+        </field>
+        <field
+                name="show_log_key"
+                type="switcher"
+                label="COM_UMART_SHOW_LOG_STRING_KEY"
+                description="COM_UMART_SHOW_LOG_STRING_KEY_DESC"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="notification_low_stock"
+                type="number"
+                label="COM_UMART_LOW_STOCK_NUMBER"
+                description="COM_UMART_LOW_STOCK_NUMBER_DESC"
+                class="uk-input"
+                min="1"
+                default="5"
+                filter="intval"
+        />
+        <field
+                name="stock_order_update"
+                type="OrderStatus"
+                label="COM_UMART_UPDATE_STOCK_ON_ORDER_STATUS"
+                description="COM_UMART_UPDATE_STOCK_ON_ORDER_STATUS_DESC"
+                class="uk-select"
+                multiple="true"
+                excludes="-2,5"
+        />
+        <field
+                name="stock_paid_update"
+                type="switcher"
+                label="COM_UMART_UPDATE_STOCK_ON_ORDER_PAID"
+                description="COM_UMART_UPDATE_STOCK_ON_ORDER_PAID_DESC"
+                default="1"
+                filter="intval"
+                showon="stock_order_update!:"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="notification_seconds"
+                type="text"
+                label="COM_UMART_REFRESH_NOTIFICATION_SECONDS"
+                description="COM_UMART_REFRESH_NOTIFICATION_SECONDS_DESC"
+                class="uk-input"
+                default="30"
+                filter="intval"
+        />
+        <field
+                name="groups_can_view_price"
+                type="usergrouplist"
+                label="COM_UMART_ACTION_ADD_VIEW_PRICE"
+                description="COM_UMART_ACTION_VIEW_PRICE_DESC"
+                multiple="true"
+        />
+        <field
+                name="groups_can_add_to_cart"
+                type="usergrouplist"
+                label="COM_UMART_ACTION_ADD_TO_CART"
+                description="COM_UMART_ACTION_ADD_TO_CART_DESC"
+                multiple="true"
+        />
+    </fieldset>
+    <fieldset
+            name="shop"
+            label="COM_UMART_SHOP"
+    >
+        <field
+                name="shop_cart_info"
+                type="switcher"
+                label="COM_UMART_SHOP_INFO_IN_CART"
+                description="COM_UMART_SHOP_INFO_IN_CART_DESC"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="shop_logo"
+                type="Modal_Media"
+                label="COM_UMART_LOGO"
+                filter="UmartHelper::filterMediaImage"/>
+        <field
+                name="shop_name"
+                type="text"
+                label="COM_UMART_SHOP_NAME"
+                class="uk-input"
+        />
+        <field
+                name="shop_website"
+                type="text"
+                label="COM_UMART_WEBSITE"
+                class="uk-input"
+        />
+        <field
+                name="shop_address_1"
+                type="text"
+                label="COM_UMART_ADDRESS_1"
+                class="uk-input"
+        />
+        <field
+                name="shop_address_2"
+                type="text"
+                label="COM_UMART_ADDRESS_2"
+                class="uk-input"
+        />
+        <field
+                name="shop_city"
+                type="text"
+                label="COM_UMART_CITY"
+                class="uk-input"
+        />
+        <field
+                name="shop_postcode"
+                type="text"
+                label="COM_UMART_POST_CODE"
+                class="uk-input"
+        />
+        <field
+                name="shop_email"
+                type="text"
+                label="COM_UMART_EMAIL"
+                validate="email"
+                class="uk-input"
+        />
+        <field
+                name="shop_telephone"
+                type="text"
+                label="COM_UMART_TELEPHONE"
+                class="uk-input"
+        />
+        <field
+                name="shop_mobile"
+                type="text"
+                label="COM_UMART_MOBILE"
+                class="uk-input"
+        />
+        <field
+                name="shop_fax"
+                type="text"
+                label="COM_UMART_FAX"
+                class="uk-input"
+        />
+        <field
+                name="shop_country"
+                type="zone"
+                zone_type="country"
+                label="COM_UMART_COUNTRY"
+                class="uk-select"
+        >
+            <option value="">COM_UMART_COUNTRY_SELECT</option>
+        </field>
+        <field
+                name="shop_address_format"
+                type="textarea"
+                label="COM_UMART_ADDRESS_FORMAT"
+                description="COM_UMART_ADDRESS_FORMAT_DESC"
+                cols="25"
+                rows="5"
+                default="{shop_name} {shop_address_1}, {shop_postcode}, {shop_city}, {shop_country}"
+                filter="safehtml"
+                class="uk-textarea"
+        />
+        <field
+                name="shop_description"
+                type="textarea"
+                label="COM_UMART_DESCRIPTION"
+                cols="50"
+                rows="15"
+                filter="safehtml"
+                class="uk-textarea"
+        />
+    </fieldset>
+    <fieldset
+            name="orders"
+            label="COM_UMART_ORDERS"
+    >
+        <field
+                name="order_code_format"
+                type="text"
+                label="COM_UMART_ORDER_CODE_FORMAT"
+                class="uk-input"
+                default="{random:7}"
+        />
+        <field
+                name="notification_orders_number"
+                type="number"
+                label="COM_UMART_NOTIFICATION_ORDERS_NUMBER"
+                description="COM_UMART_NOTIFICATION_ORDERS_NUMBER_DESC"
+                class="uk-input"
+                min="5"
+                step="1"
+                max="20"
+                default="10"
+                filter="intval"
+                showon="notification_seconds!:0[AND]notification_seconds!:"
+        />
+        <field
+                name="csv_fields"
+                type="checkboxes"
+                label="COM_UMART_ORDER_CSV_FIELDS"
+                description="COM_UMART_ORDER_CSV_FIELDS_DESC"
+                multiple="true"
+                default="0,1,2,3,4,5,6,7,8,9,10,11"
+        >
+            <option value="0">COM_UMART_ORDER_CODE</option>
+            <option value="1">COM_UMART_DATE</option>
+            <option value="2">COM_UMART_ORDER_STATUS</option>
+            <option value="3">COM_UMART_PAYMENT_STATUS</option>
+            <option value="4">COM_UMART_TOTAL_PRICE</option>
+            <option value="5">COM_UMART_TAXES</option>
+            <option value="6">COM_UMART_SHIPPING</option>
+            <option value="7">COM_UMART_FEE</option>
+            <option value="8">COM_UMART_DISCOUNT</option>
+            <option value="9">COM_UMART_CUSTOMER</option>
+            <option value="10">COM_UMART_BILLING_ADDRESS</option>
+            <option value="11">COM_UMART_SHIPPING_ADDRESS</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="search"
+            label="COM_UMART_SEARCH"
+    >
+        <field
+                name="show_search_filter_bar"
+                type="switcher"
+                label="COM_UMART_SHOW_FILTER_BAR"
+                class="uk-select"
+                default="1"
+                filter="intval">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="show_search_toggle_button"
+                type="switcher"
+                label="COM_UMART_SHOW_TOGGLE_BUTTON"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="show_search_filter_bar:1">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="search_default_ordering"
+                type="UmartSort"
+                label="COM_UMART_DEFAULT_ORDERING"
+                class="uk-select"
+                default=""
+        />
+        <field
+                name="search_default_limit"
+                type="text"
+                label="COM_UMART_DEFAULT_LIMIT"
+                class="uk-input"
+                default="15"
+                filter="intval"
+        />
+    </fieldset>
+    <fieldset
+            name="integration"
+            label="COM_UMART_INTEGRATION">
+        <field
+                name="user_redirect_form"
+                type="switcher"
+                label="COM_UMART_USER_REDIRECT_FORM"
+                description="COM_UMART_USER_REDIRECT_FORM_DESC"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="user_auto_activate"
+                type="switcher"
+                label="COM_UMART_USER_AUTO_ACTIVATE"
+                description="COM_UMART_USER_AUTO_ACTIVATE_DESC"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="dashboard"
+            label="COM_UMART_DASHBOARD">
+        <field
+                name="latest_order_num"
+                type="number"
+                min="1"
+                label="COM_UMART_NUMBER_OF_LATEST_ORDER"
+                class="uk-input"
+                default="10"
+                filter="intval"
+        />
+        <field
+                name="best_products"
+                type="switcher"
+                label="COM_UMART_BEST_PRODUCTS"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="best_products_style"
+                type="switcher"
+                label="COM_UMART_STYLE"
+                class="uk-select"
+                default="primary"
+                showon="best_products:1"
+        >
+            <option value="no-style">JNO</option>
+            <option value="default">COM_UMART_DEFAULT</option>
+            <option value="primary">COM_UMART_PRIMARY</option>
+            <option value="secondary">COM_UMART_SECONDARY</option>
+        </field>
+        <field
+                name="best_customers"
+                type="switcher"
+                label="COM_UMART_BEST_CUSTOMERS"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="best_customers_style"
+                type="switcher"
+                label="COM_UMART_STYLE"
+                class="uk-select"
+                default="no-style"
+                showon="best_customers:1"
+        >
+            <option value="no-style">JNO</option>
+            <option value="default">COM_UMART_DEFAULT</option>
+            <option value="primary">COM_UMART_PRIMARY</option>
+            <option value="secondary">COM_UMART_SECONDARY</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="images"
+            label="COM_UMART_IMAGES"
+    >
+        <field
+                name="image_origin_size"
+                type="text"
+                label="COM_UMART_RESIZE_ORIGIN"
+                description="COM_UMART_RESIZE_ORIGIN_DESC"
+                hint="COM_UMART_RESIZE_ORIGIN_HINT"
+                class="uk-input"
+                default=""
+        />
+        <field
+                name="image_tiny_size"
+                type="text"
+                label="COM_UMART_TINY_SIZE"
+                description="COM_UMART_IMAGE_SIZE_DESC"
+                class="uk-input"
+                default="150x0"
+        />
+        <field
+                name="image_small_size"
+                type="text"
+                label="COM_UMART_SMALL_SIZE"
+                description="COM_UMART_IMAGE_SIZE_DESC"
+                class="uk-input"
+                default="250x0"
+        />
+        <field
+                name="image_medium_size"
+                type="text"
+                label="COM_UMART_MEDIUM_SIZE"
+                description="COM_UMART_IMAGE_SIZE_DESC"
+                class="uk-input"
+                default="450x0"
+        />
+        <field
+                name="image_large_size"
+                type="text"
+                label="COM_UMART_LARGE_SIZE"
+                description="COM_UMART_IMAGE_SIZE_DESC"
+                class="uk-input"
+                default="850x0"
+        />
+        <field
+                name="image_xlarge_size"
+                type="text"
+                label="COM_UMART_XLARGE_SIZE"
+                description="COM_UMART_IMAGE_SIZE_DESC"
+                class="uk-input"
+                default="1200x0"
+        />
+        <field
+                type="spacer"
+                hr="true"
+        />
+        <field
+                name="upload_max_size"
+                type="number"
+                label="COM_UMART_UPLOAD_FILE_MAX_SIZE"
+                class="uk-input"
+                min="1"
+                default="2"
+        />
+        <field
+                name="customer_max_upload"
+                type="number"
+                label="COM_UMART_CUSTOMER_MAX_IMAGES"
+                description="COM_UMART_CUSTOMER_MAX_IMAGES_DESC"
+                class="uk-input"
+                min="1"
+                default="5"
+                filter="intval"
+        />
+        <field
+                name="image_lazy_load"
+                type="switcher"
+                label="COM_UMART_IMAGE_LAZY_LOAD"
+                description="COM_UMART_IMAGE_LAZY_LOAD_DESC"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="image_lazy_resize"
+                type="switcher"
+                label="COM_UMART_IMAGE_LAZY_RESIZE"
+                description="COM_UMART_IMAGE_LAZY_RESIZE_DESC"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                type="note"
+                label="COM_UMART_FORCE_IMAGE_SIZE_ON_SCREEN"
+                showon="image_lazy_load:1"
+        />
+        <field
+                name="imagesize_xsmall_screen"
+                type="ImageSize"
+                label="COM_UMART_XSMALL_SCREEN"
+                description="COM_UMART_XSMALL_SCREEN_DESC"
+                default=""
+                showon="image_lazy_load:1"
+        >
+            <option value="">COM_UMART_NO_AFFECTS</option>
+        </field>
+        <field
+                name="imagesize_small_screen"
+                type="ImageSize"
+                label="COM_UMART_SMALL_SCREEN"
+                description="COM_UMART_SMALL_SCREEN_DESC"
+                default=""
+                showon="image_lazy_load:1"
+        >
+            <option value="">COM_UMART_NO_AFFECTS</option>
+        </field>
+        <field
+                name="imagesize_medium_screen"
+                type="ImageSize"
+                label="COM_UMART_MEDIUM_SCREEN"
+                description="COM_UMART_MEDIUM_SCREEN_DESC"
+                default=""
+                showon="image_lazy_load:1"
+        >
+            <option value="">COM_UMART_NO_AFFECTS</option>
+        </field>
+        <field
+                name="imagesize_large_screen"
+                type="ImageSize"
+                label="COM_UMART_LARGE_SCREEN"
+                description="COM_UMART_LARGE_SCREEN_DESC"
+                default=""
+                showon="image_lazy_load:1"
+        >
+            <option value="">COM_UMART_NO_AFFECTS</option>
+        </field>
+        <field
+                name="imagesize_xlarge_screen"
+                type="ImageSize"
+                label="COM_UMART_XLARGE_SCREEN"
+                description="COM_UMART_XLARGE_SCREEN_DESC"
+                default=""
+                showon="image_lazy_load:1"
+        >
+            <option value="">COM_UMART_NO_AFFECTS</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="product_listing"
+            label="COM_UMART_LISTING_VIEW"
+    >
+        <field
+                name="show_category"
+                type="list"
+                label="COM_UMART_SHOW_CATEGORY"
+                class="uk-select"
+                default="0"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="showCategoryTitle"
+                type="list"
+                label="COM_UMART_PRODUCT_CATEGORY_TITLE"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="show_category:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="category_description"
+                type="list"
+                label="COM_UMART_PRODUCT_CATEGORY_DESCRIPTION"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="show_category:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="show_sub_categories"
+                type="list"
+                label="COM_UMART_SHOW_SUB_CATEGORIES_LIST"
+                class="uk-select"
+                default="0"
+                filter="intval"
+        >
+            <option value="0">JNO</option>
+            <option value="1">COM_UMART_NAME_N_LINK</option>
+            <option value="2">COM_UMART_NAME_ONLY</option>
+        </field>
+        <field
+                name="product_in_sub_categories"
+                type="list"
+                label="COM_UMART_PRODUCT_IN_SUB_CATEGORIES"
+                class="uk-select"
+                default="0"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="list_mode"
+                type="list"
+                label="COM_UMART_DEFAULT_VIEW"
+                description="COM_UMART_DEFAULT_VIEW_DESC"
+                class="uk-select"
+                default="toggle"
+        >
+            <option value="toggle">COM_UMART_TOGGLE</option>
+            <option value="list">COM_UMART_LIST</option>
+            <option value="grid">COM_UMART_GRID</option>
+        </field>
+        <field
+                name="grid_mode"
+                type="list"
+                label="COM_UMART_GRID_MODE"
+                class="uk-select"
+                default="normal"
+                showon="list_mode:toggle,grid"
+        >
+            <option value="normal">JNORMAL</option>
+            <option value="match">COM_UMART_MATCH_HEIGHT</option>
+            <option value="dynamic">COM_UMART_DYNAMIC</option>
+            <option value="parallax">COM_UMART_PARALLAX</option>
+        </field>
+        <field
+                name="show_filter_bar"
+                type="list"
+                label="COM_UMART_SHOW_FILTER_BAR"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="show_toggle_button"
+                type="list"
+                label="COM_UMART_SHOW_TOGGLE_BUTTON"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="show_filter_bar:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_default_ordering"
+                type="UmartSort"
+                label="COM_UMART_DEFAULT_ORDERING"
+                class="uk-select"
+                default=""
+        />
+        <field
+                name="product_list_default_limit"
+                type="text"
+                label="COM_UMART_DEFAULT_LIMIT"
+                class="uk-input"
+                default="15"
+                filter="intval"
+        />
+        <field
+                name="product_list_columns"
+                type="number"
+                label="COM_UMART_COLUMN_IN_ROW"
+                description="COM_UMART_COLUMN_IN_ROW_DESC"
+                class="uk-select"
+                default="3"
+                showon="list_mode:,toggle,grid"
+                filter="intval"
+        />
+        <field
+                name="product_list_columns_xs"
+                type="number"
+                label="COM_UMART_XSMALL_SCREEN"
+                description="COM_UMART_XSMALL_SCREEN_DESC"
+                class="uk-input"
+                default=""
+                showon="list_mode:,toggle,grid"
+        />
+        <field
+                name="product_list_columns_s"
+                type="number"
+                label="COM_UMART_SMALL_SCREEN"
+                description="COM_UMART_SMALL_SCREEN_DESC"
+                class="uk-input"
+                default=""
+                showon="list_mode:,toggle,grid"
+        />
+        <field
+                name="product_list_columns_l"
+                type="number"
+                label="COM_UMART_LARGE_SCREEN"
+                description="COM_UMART_LARGE_SCREEN_DESC"
+                class="uk-input"
+                default=""
+                showon="list_mode:,toggle,grid"
+        />
+        <field
+                name="product_list_columns_xl"
+                type="number"
+                label="COM_UMART_XLARGE_SCREEN"
+                description="COM_UMART_XLARGE_SCREEN_DESC"
+                class="uk-input"
+                default=""
+                showon="list_mode:,toggle,grid"
+        />
+        <field
+                type="spacer"
+                hr="true"
+        />
+        <field
+                name="product_list_intro"
+                type="list"
+                label="COM_UMART_PRODUCT_INTRO"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_image_size"
+                type="list"
+                label="COM_UMART_IMAGE_SIZE"
+                class="uk-select"
+                default="medium"
+        >
+            <option value="tiny">COM_UMART_TINY_SIZE</option>
+            <option value="small">COM_UMART_SMALL_SIZE</option>
+            <option value="medium">COM_UMART_MEDIUM_SIZE</option>
+            <option value="large">COM_UMART_LARGE_SIZE</option>
+            <option value="xlarge">COM_UMART_XLARGE_SIZE</option>
+        </field>
+        <field
+                name="product_list_images_slider"
+                type="list"
+                label="COM_UMART_IMAGES_SLIDER"
+                description="COM_UMART_IMAGES_SLIDER_DESC"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_slider_cover"
+                type="list"
+                label="COM_UMART_SLIDER_COVER"
+                default="0"
+                class="uk-select"
+                showon="product_list_images_slider:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_cover_height"
+                type="number"
+                label="COM_UMART_COVER_HEIGHT"
+                min="150"
+                default="200"
+                filter="uint"
+                showon="product_list_images_slider:1[AND]product_list_slider_cover:1"
+        />
+        <field
+                name="product_list_add_to_cart"
+                type="list"
+                label="COM_UMART_ADD_TO_CART"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_options"
+                type="list"
+                label="COM_UMART_PRODUCT_OPTIONS"
+                description="COM_UMART_PRODUCT_OPTIONS_DESC"
+                class="uk-select"
+                default="1"
+                showon="product_list_add_to_cart:1"
+        >
+            <option value="1">COM_UMART_SHOW</option>
+            <option value="0">COM_UMART_HIDE</option>
+        </field>
+        <field
+                name="product_list_prices"
+                type="list"
+                label="COM_UMART_PRODUCT_PRICE"
+                class="uk-select"
+                default="price_n_taxes"
+        >
+            <option value="price_n_taxes">COM_UMART_PRODUCT_PRICE_N_TAXES</option>
+            <option value="price">COM_UMART_PRODUCT_PRICE</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_tags"
+                type="list"
+                label="COM_UMART_PRODUCT_TAGS"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_meta"
+                type="list"
+                label="COM_UMART_PRODUCT_META"
+                class="uk-select"
+                filter="intval"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_sku"
+                type="list"
+                label="COM_UMART_PRODUCT_SKU"
+                class="uk-select"
+                filter="intval"
+                default="1"
+                showon="product_list_meta:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_category"
+                type="list"
+                label="COM_UMART_CATEGORY"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="product_list_meta:1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">COM_UMART_NAME_N_LINK</option>
+            <option value="2">COM_UMART_NAME_ONLY</option>
+        </field>
+        <field
+                name="product_list_brand"
+                type="list"
+                label="COM_UMART_BRAND"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="product_list_meta:1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">COM_UMART_NAME_N_LINK</option>
+            <option value="2">COM_UMART_NAME_ONLY</option>
+        </field>
+        <field
+                name="product_list_countdown"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN"
+                description="COM_UMART_PRODUCT_COUNTDOWN_DESC"
+                class="uk-select"
+                filter="intval"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_countdown_show_label"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN_SHOW_LABEL"
+                description="COM_UMART_PRODUCT_COUNTDOWN_SHOW_LABEL_DESC"
+                class="uk-select"
+                filter="intval"
+                default="0"
+                showon="product_list_countdown:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_list_countdown_label"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN_LABEL"
+                description="COM_UMART_PRODUCT_COUNTDOWN_LABEL_DESC"
+                class="uk-select"
+                filter="intval"
+                default="1"
+                showon="product_list_countdown:1"
+        >
+            <option value="1">COM_UMART_PRODUCT_COUNTDOWN_FULL</option>
+            <option value="2">COM_UMART_PRODUCT_COUNTDOWN_HIDE_DAY</option>
+            <option value="3">COM_UMART_PRODUCT_COUNTDOWN_HIDE_DAY_HOUR</option>
+        </field>
+        <field
+                name="product_list_show_price_by_qty"
+                type="list"
+                label="COM_UMART_SHOW_PRICE_BY_QUANTITY"
+                description="COM_UMART_SHOW_PRICE_BY_QUANTITY_DESC"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="product_detail"
+            label="COM_UMART_DETAIL_VIEW"
+    >
+        <field
+                name="product_detail_intro"
+                type="list"
+                label="COM_UMART_PRODUCT_INTRO"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_image_size"
+                type="list"
+                label="COM_UMART_IMAGE_SIZE"
+                class="uk-select"
+                default="large"
+        >
+            <option value="tiny">COM_UMART_TINY_SIZE</option>
+            <option value="small">COM_UMART_SMALL_SIZE</option>
+            <option value="medium">COM_UMART_MEDIUM_SIZE</option>
+            <option value="large">COM_UMART_LARGE_SIZE</option>
+            <option value="xlarge">COM_UMART_XLARGE_SIZE</option>
+        </field>
+        <field
+                name="product_detail_thumb_cover"
+                type="list"
+                label="COM_UMART_SLIDER_COVER"
+                class="uk-select"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_thumb_height"
+                type="number"
+                label="COM_UMART_COVER_HEIGHT"
+                min="50"
+                default="90"
+                filter="uint"
+                class="uk-input"
+                showon="product_detail_thumb_cover:1"
+        />
+        <field
+                name="product_detail_add_to_cart"
+                type="list"
+                label="COM_UMART_ADD_TO_CART"
+                class="uk-select"
+                default="1"
+                filter="uint"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_min_quantity"
+                type="text"
+                label="COM_UMART_MIN_CART_QUANTITY"
+                description="COM_UMART_MIN_CART_QUANTITY_DESC"
+                class="uk-input"
+                default=""
+                filter="uint"
+        />
+        <field
+                name="product_detail_max_quantity"
+                type="text"
+                label="COM_UMART_MAX_CART_QUANTITY"
+                description="COM_UMART_MAX_CART_QUANTITY_DESC"
+                class="uk-input"
+                default=""
+                filter="uint"
+        />
+        <field
+                name="product_detail_prices"
+                type="list"
+                label="COM_UMART_PRODUCT_PRICE"
+                class="uk-select"
+                default="price_n_taxes"
+        >
+            <option value="price_n_taxes">COM_UMART_PRODUCT_PRICE_N_TAXES</option>
+            <option value="price">COM_UMART_PRODUCT_PRICE</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_tags"
+                type="list"
+                label="COM_UMART_PRODUCT_TAGS"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_meta"
+                type="list"
+                label="COM_UMART_PRODUCT_META"
+                class="uk-select"
+                filter="intval"
+                default="1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field
+                name="product_detail_sku"
+                type="list"
+                label="COM_UMART_PRODUCT_SKU"
+                class="uk-select"
+                filter="intval"
+                default="1"
+                showon="product_detail_meta:1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field
+                name="product_detail_category"
+                type="list"
+                label="COM_UMART_CATEGORY"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="product_detail_meta:1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">COM_UMART_NAME_N_LINK</option>
+            <option value="2">COM_UMART_NAME_ONLY</option>
+        </field>
+        <field
+                name="product_detail_brand"
+                type="list"
+                label="COM_UMART_BRAND"
+                class="uk-select"
+                default="1"
+                filter="intval"
+                showon="product_detail_meta:1"
+        >
+            <option value="0">JNO</option>
+            <option value="1">COM_UMART_NAME_N_LINK</option>
+            <option value="2">COM_UMART_NAME_ONLY</option>
+        </field>
+        <field
+                name="product_detail_field"
+                type="list"
+                label="COM_UMART_CUSTOMFIELDS_DISPLAY"
+                class="uk-select"
+                default="tab">
+            <option value="tab">COM_UMART_DISPLAY_TAB</option>
+            <option value="info">COM_UMART_DISPLAY_INFO</option>
+        </field>
+        <field
+                name="product_detail_countdown"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN"
+                description="COM_UMART_PRODUCT_COUNTDOWN_DESC"
+                class="uk-select"
+                filter="intval"
+                default="0"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_countdown_show_label"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN_SHOW_LABEL"
+                description="COM_UMART_PRODUCT_COUNTDOWN_SHOW_LABEL_DESC"
+                class="uk-select"
+                filter="intval"
+                default="0"
+                showon="product_detail_countdown:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_countdown_label"
+                type="list"
+                label="COM_UMART_PRODUCT_COUNTDOWN_LABEL"
+                description="COM_UMART_PRODUCT_COUNTDOWN_LABEL_DESC"
+                class="uk-select"
+                filter="intval"
+                default="1"
+                showon="product_detail_countdown:1"
+        >
+            <option value="1">COM_UMART_PRODUCT_COUNTDOWN_FULL</option>
+            <option value="2">COM_UMART_PRODUCT_COUNTDOWN_HIDE_DAY</option>
+            <option value="3">COM_UMART_PRODUCT_COUNTDOWN_HIDE_DAY_HOUR</option>
+        </field>
+        <field
+                name="product_detail_direct"
+                type="list"
+                label="COM_UMART_PRODUCT_DIRECT_CHECKOUT"
+                description="COM_UMART_PRODUCT_DIRECT_CHECKOUT_DESC"
+                class="uk-select"
+                default="0"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_prepare"
+                type="list"
+                label="COM_UMART_PRODUCT_PREPARE_CONTENT"
+                description="COM_UMART_PRODUCT_PREPARE_CONTENT_DESC"
+                class="uk-select"
+                default="0"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_show_price_by_qty"
+                type="list"
+                label="COM_UMART_SHOW_PRICE_BY_QUANTITY"
+                description="COM_UMART_SHOW_PRICE_BY_QUANTITY_DESC"
+                class="uk-select"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="product_detail_tab_layout"
+                type="list"
+                label="COM_UMART_DETAIL_TAB_LAYOUT"
+                class="uk-select"
+                default="tab-default"
+                validate="options"
+        >
+            <option value="tab-default">COM_UMART_CHECKOUT_TAB_DEFAULT</option>
+            <option value="tab-left">COM_UMART_CHECKOUT_TAB_LEFT</option>
+            <option value="tab-center">COM_UMART_CHECKOUT_TAB_CENTER</option>
+            <option value="tab-right">COM_UMART_CHECKOUT_TAB_RIGHT</option>
+            <option value="tab-bottom">COM_UMART_CHECKOUT_TAB_BOTTOM</option>
+            <option value="slide">COM_UMART_CHECKOUT_SLIDE</option>
+        </field>
+    </fieldset>
+    <fieldset
+            name="checkout"
+            label="COM_UMART_CHECKOUT"
+    >
+        <field
+                name="address_format"
+                type="textarea"
+                label="COM_UMART_ADDRESS_FORMAT"
+                description="COM_UMART_ADDRESS_FORMAT_DESC"
+                cols="25"
+                rows="5"
+                default="{user_name} {user_address}, {user_postcode}, {user_city}, {user_state}, {user_country}"
+                filter="safehtml"
+        />
+        <field
+                name="show_coupons"
+                type="switcher"
+                label="COM_UMART_SHOW_COUPONS"
+                description="COM_UMART_SHOW_COUPONS_DESC"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="disable_shipping_address"
+                type="switcher"
+                label="COM_UMART_DISABLE_SHIPPING_ADDRESS"
+                description="COM_UMART_DISABLE_SHIPPING_ADDRESS_DESC"
+                default="0"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="keep_confirm_shipping"
+                type="switcher"
+                label="COM_UMART_KEEP_CONFIRM_SHIPPING_ADDRESS"
+                description="COM_UMART_KEEP_CONFIRM_SHIPPING_ADDRESS_DESC"
+                default="1"
+                filter="intval"
+                showon="disable_shipping_address:1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="show_steps_bar"
+                type="switcher"
+                label="COM_UMART_SHOW_STEP_BAR"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="guest_checkout"
+                type="switcher"
+                label="COM_UMART_GUEST_CHECKOUT"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="enable_registration"
+                type="switcher"
+                label="COM_UMART_ENABLE_REGISTRATION"
+                description="COM_UMART_ENABLE_REGISTRATION_DESC"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="enable_track_order"
+                type="switcher"
+                label="COM_UMART_ENABLE_TRACK_ORDER"
+                description="COM_UMART_ENABLE_TRACK_ORDER_DESC"
+                default="1"
+                filter="intval"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="terms_and_conditions"
+                type="switcher"
+                label="COM_UMART_TERMS_AND_CONDITIONS"
+                default="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+                name="tnc_url"
+                type="text"
+                class="input-xxlarge"
+                label="COM_UMART_TERMS_AND_CONDITIONS_URL"
+                description="COM_UMART_TERMS_AND_CONDITIONS_URL_DESC"
+                showon="terms_and_conditions:1"
+        />
+    </fieldset>
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="JCONFIG_PERMISSIONS_DESC"
+    >
+
+        <field
+                name="rules"
+                type="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                validate="rules"
+                filter="rules"
+                component="com_umart"
+                section="component"
+        />
+    </fieldset>
+</config>

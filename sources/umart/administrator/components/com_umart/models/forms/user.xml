@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS"
+    >
+        <field name="id" type="hidden" readonly="true"/>
+        <field name="user_type" type="hidden" readonly="true"/>
+        <field
+                name="user_id"
+                type="user"
+                label="COM_UMART_USER"
+                required="true"
+                filter="intval"
+        />
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                filter="intval"
+                validate="options"
+                class="uk-select"
+                default="1"
+        >
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="2">
+                JARCHIVED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="vendor"
+                type="hidden"
+                label="COM_UMART_VENDOR"
+                default="0"
+                validate="options"
+        >
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="secret_key"
+                type="toggle"
+                label="COM_UMART_SECRET_KEY"
+                description="COM_UMART_CUSTOMER_SECRET_KEY_DESC"
+                readonly="true"
+                class="uk-input uk-form-width-large"
+        />
+    </fieldset>
+    <fields name="customfields" label="COM_UMART_PROFILE"/>
+</form>

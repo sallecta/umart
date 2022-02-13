@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS"
+    >
+        <field name="id" type="hidden" readonly="true"/>
+        <field
+                name="name"
+                type="text"
+                label="COM_UMART_NAME"
+                class="uk-input"
+                required="true"
+        />
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                filter="intval"
+                validate="options"
+                class="uk-select"
+                default="1"
+        >
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="type"
+                type="list"
+                label="COM_UMART_TAX_TYPE"
+                class="uk-select"
+                filter="intval"
+                default="1"
+                validate="options"
+        >
+            <option value="0">COM_UMART_FLAT</option>
+            <option value="1">COM_UMART_PERCENTAGE</option>
+        </field>
+        <field
+                name="rate"
+                type="text"
+                label="COM_UMART_RATE"
+                filter="intval"
+                description="COM_UMART_TAX_RATE_DESC"
+                class="uk-input"
+                hint="COM_UMART_TAX_RATE_HINT"
+                showon="type:1"
+        />
+        <field
+                name="flat"
+                type="text"
+                label="COM_UMART_FLAT"
+                class="uk-input"
+                filter="floatval"
+                default="0.00"
+                showon="type:0"
+        />
+        <field
+                name="vendor_id"
+                type="hidden"
+                label="COM_UMART_VENDOR"
+                vendor="true"
+                default="0"
+                filter="unset"
+        />
+    </fieldset>
+</form>

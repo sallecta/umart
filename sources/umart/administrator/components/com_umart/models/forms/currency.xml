@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+    <fieldset
+            name="general"
+            label="COM_UMART_OPTIONS">
+        <field name="id" type="hidden" readonly="true"/>
+        <field
+                name="name"
+                type="text"
+                label="COM_UMART_NAME"
+                class="uk-input"
+                size="40"
+                required="true"/>
+        <field
+                name="is_default"
+                type="switcher"
+                label="COM_UMART_DEFAULT"
+                validate="options"
+                default="0"
+                filter="intval">
+            <option value="1">COM_UMART_YES</option>
+            <option value="0">COM_UMART_NO</option>
+        </field>
+        <field
+                name="state"
+                type="list"
+                label="JSTATUS"
+                class="uk-select"
+                filter="intval"
+                validate="options"
+                default="1">
+            <option value="1">
+                COM_UMART_PUBLISHED
+            </option>
+            <option value="0">
+                COM_UMART_UNPUBLISHED
+            </option>
+            <option value="-2">
+                JTRASHED
+            </option>
+        </field>
+        <field
+                name="code"
+                type="text"
+                label="COM_UMART_CODE"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="symbol"
+                type="text"
+                label="COM_UMART_SYMBOL"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="rate"
+                type="text"
+                label="COM_UMART_RATE"
+                class="uk-input"
+                required="true"
+                filter="floatval"/>
+        <field
+                name="decimals"
+                type="text"
+                label="COM_UMART_CURRENCY_DECIMALS"
+                class="uk-input"
+                required="true"
+                filter="intval"/>
+        <field
+                name="point"
+                type="text"
+                label="COM_UMART_CURRENCY_GROUP"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="separator"
+                type="text"
+                label="COM_UMART_CURRENCY_SEPARATOR"
+                class="uk-input"
+                required="true"/>
+        <field
+                name="format"
+                type="text"
+                label="COM_UMART_FORMAT"
+                class="uk-input"
+                required="true"/>
+    </fieldset>
+    <fields
+            name="params">
+        <fieldset
+                name="range_by_price"
+                label="COM_UMART_RANGE_BY_PRICE">
+            <field
+                    name="range_by_price"
+                    type="textarea"
+                    label="COM_UMART_RANGE_BY_PRICE"
+                    class="uk-textarea"
+                    cols="25"
+                    rows="5"
+                    default="0-49&#13;50-99&#13;100-200&#13;200-400&#13;500-0"/>
+        </fieldset>
+    </fields>
+</form>

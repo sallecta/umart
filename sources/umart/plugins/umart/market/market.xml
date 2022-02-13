@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="umart" method="upgrade">
+    <name>plg_umart_market</name>
+    <author>JoomTech team, Sallecta</author>
+    <creationDate>September 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_UMART_MARKET_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="market">market.php</filename>
+        <folder>dispatch</folder>
+        <folder>language</folder>
+        <folder>layouts</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="secret_key"
+                        type="text"
+                        label="COM_UMART_SECRET_KEY"
+                        description="PLG_UMART_MARKET_SECRET_KEY_DESC"
+                        class="input-xxlarge"/>
+                <field
+                        name="channel_url"
+                        type="text"
+                        label="PLG_UMART_MARKET_CHANNEL_URL"
+                        class="input-xxlarge"
+                        default="https://github.com/sallecta/umart/index.php?option=com_umart&amp;task=file.channel"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

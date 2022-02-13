@@ -1,0 +1,1433 @@
+.umart_scope .ui-helper-hidden {
+    display: none;
+}
+
+.umart_scope .ui-helper-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.umart_scope .ui-helper-reset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    line-height: 1.3;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none;
+}
+
+.umart_scope .ui-helper-clearfix:before, .ui-helper-clearfix:after {
+    content: "";
+    display: table;
+}
+
+.umart_scope .ui-helper-clearfix:after {
+    clear: both;
+}
+
+.umart_scope .ui-helper-clearfix {
+    zoom: 1;
+}
+
+.umart_scope .ui-helper-zfix {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    filter: Alpha(Opacity=0);
+}
+
+/* Interaction Cues
+----------------------------------*/
+.umart_scope .ui-state-disabled {
+    cursor: default !important;
+}
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.umart_scope .ui-icon {
+    display: block;
+    text-indent: -99999px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+}
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.umart_scope .ui-widget-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.umart_scope .ui-datepicker {
+    width: 17em;
+    padding: .2em .2em 0;
+    display: none;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-header {
+    position: relative;
+    padding: .2em 0;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-prev,
+.umart_scope .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-prev-hover,
+.umart_scope .ui-datepicker .ui-datepicker-next-hover {
+    top: 1px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-prev {
+    left: 2px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-next {
+    right: 2px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-prev-hover {
+    left: 1px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-next-hover {
+    right: 1px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-prev span,
+.umart_scope .ui-datepicker .ui-datepicker-next span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-title select {
+    font-size: 1em;
+    margin: 1px 0;
+}
+
+.umart_scope .ui-datepicker select.ui-datepicker-month-year {
+    width: 100%;
+}
+
+.umart_scope .ui-datepicker select.ui-datepicker-month,
+.umart_scope .ui-datepicker select.ui-datepicker-year {
+    width: 49%;
+    border-radius: 0;
+    border: 1px solid #eee;
+    outline: 0;
+    margin: 0;
+    height: 24px;
+    box-sizing: border-box;
+}
+
+.umart_scope .ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+}
+
+.umart_scope .ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: bold;
+    border: 0;
+}
+
+.umart_scope .ui-datepicker td {
+    border: 0;
+    padding: 1px;
+}
+
+.umart_scope .ui-datepicker td span,
+.umart_scope .ui-datepicker td a {
+    display: block;
+    padding: .2em;
+    text-align: right;
+    text-decoration: none;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-buttonpane {
+    background-image: none;
+    margin: .7em 0 0 0;
+    padding: 0 .2em;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-buttonpane button {
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+    overflow: visible;
+    border: 1px solid #eee;
+    outline: none;
+    background: #f8f8f8;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: left;
+}
+
+/* with multiple calendars */
+.umart_scope .ui-datepicker-multi .ui-datepicker-group {
+    display: inline-block;
+    width: 100%;
+}
+
+.umart_scope .ui-datepicker-multi .ui-datepicker-group table {
+    width: 95%;
+    margin: 0 auto .4em;
+}
+
+@media (min-width: 620px) {
+    .umart_scope .ui-datepicker-multi-2 .ui-datepicker-group,
+    .umart_scope .ui-datepicker-multi-4 .ui-datepicker-group {
+        width: 50%;
+    }
+
+    .umart_scope .ui-datepicker-multi-3 .ui-datepicker-group {
+        width: 33.3%;
+    }
+}
+
+@media (min-width: 850px) {
+    .umart_scope .ui-datepicker-multi-4 .ui-datepicker-group {
+        width: 25%;
+    }
+}
+
+@media (max-width: 479px) {
+    .umart_scope .ui-datepicker.ui-datepicker-multi {
+        width: 310px !important;
+    }
+}
+
+.umart_scope .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
+    border-left-width: 0;
+}
+
+.umart_scope .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+    border-left-width: 0;
+}
+
+.umart_scope .ui-datepicker-multi .ui-datepicker-buttonpane {
+    clear: left;
+}
+
+.umart_scope .ui-datepicker-row-break {
+    clear: both;
+    width: 100%;
+    font-size: 0em;
+}
+
+/* RTL support */
+.umart_scope .ui-datepicker-rtl {
+    direction: rtl;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-prev {
+    right: 2px;
+    left: auto;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-next {
+    left: 2px;
+    right: auto;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-prev:hover {
+    right: 1px;
+    left: auto;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-next:hover {
+    left: 1px;
+    right: auto;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-buttonpane {
+    clear: right;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-buttonpane button {
+    float: left;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
+    float: right;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-group {
+    float: right;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+.umart_scope .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+    border-right-width: 0;
+    border-left-width: 1px;
+}
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.umart_scope .ui-datepicker-cover {
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
+.umart_scope .ui-slider {
+    position: relative;
+    text-align: left;
+}
+
+.umart_scope .ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: default;
+    top: -4px;
+}
+
+.umart_scope .ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border: 0;
+    background-position: 0 0;
+}
+
+.umart_scope .ui-slider-horizontal {
+    height: .8em;
+}
+
+.umart_scope .ui-slider.ui-slider-horizontal {
+    background-color: #f8f8f8;
+}
+
+.umart_scope .ui-slider-horizontal .ui-slider-handle {
+    background: #f8f8f8 !important;
+    border: 1px solid #ddd !important;
+}
+
+.umart_scope .ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+
+.umart_scope .ui-slider-horizontal .ui-slider-range-min {
+    left: 0;
+}
+
+.umart_scope .ui-slider-horizontal .ui-slider-range-max {
+    right: 0;
+}
+
+.umart_scope .ui-slider-vertical {
+    width: .8em;
+    height: 100px;
+}
+
+.umart_scope .ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em;
+}
+
+.umart_scope .ui-slider-vertical .ui-slider-range {
+    left: 0;
+    width: 100%;
+}
+
+.umart_scope .ui-slider-vertical .ui-slider-range-min {
+    bottom: 0;
+}
+
+.umart_scope .ui-slider-vertical .ui-slider-range-max {
+    top: 0;
+}
+
+/* Component containers
+----------------------------------*/
+.umart_scope .ui-widget {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.umart_scope .ui-widget .ui-widget {
+    font-size: 1em;
+}
+
+.umart_scope .ui-widget input,
+.umart_scope .ui-widget select,
+.umart_scope .ui-widget textarea, .ui-widget button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.umart_scope .ui-widget-content {
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.umart_scope .ui-widget-header {
+    background: #f8f8f8;
+    border-radius: 0;
+    border-color: #ddd;
+}
+
+.umart_scope .ui-widget-header a,
+.umart_scope .ui-widget-header,
+.umart_scope .ui-widget-content,
+.umart_scope .ui-widget-content a {
+    color: #666;
+}
+
+/* Interaction states
+----------------------------------*/
+.umart_scope .ui-state-default,
+.umart_scope .ui-widget-content .ui-state-default,
+.umart_scope .ui-widget-header .ui-state-default {
+    color: #666;
+    background: #fff;
+    border-color: transparent;
+}
+
+.umart_scope .ui-state-default a,
+.umart_scope .ui-state-default a:link,
+.umart_scope .ui-state-default a:visited,
+.umart_scope .ui-state-hover a,
+.umart_scope .ui-state-hover a:hover,
+.umart_scope .ui-state-hover a:link,
+.umart_scope .ui-state-hover a:visited {
+    text-decoration: none;
+}
+
+.umart_scope .ui-state-hover a,
+.umart_scope .ui-state-hover a:hover,
+.umart_scope .ui-state-hover a:link,
+.umart_scope .ui-state-hover a:visited {
+    background-color: #fafafa;
+    color: #666;
+    outline: 0;
+    border-color: rgba(0, 0, 0, .2);
+    border-bottom-color: rgba(0, 0, 0, .3);
+    text-shadow: 0 1px 0 #fff;
+}
+
+.umart_scope .ui-state-active,
+.umart_scope .ui-widget-content .ui-state-active,
+.umart_scope .ui-widget-header .ui-state-active {
+    font-weight: normal;
+    color: #fff;
+    background: #009688;
+}
+
+.umart_scope .ui-state-active a,
+.umart_scope .ui-state-active a:link,
+.umart_scope .ui-state-active a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Interaction Cues
+----------------------------------*/
+.umart_scope .ui-state-highlight,
+.umart_scope .ui-widget-content .ui-state-highlight,
+.umart_scope .ui-widget-header .ui-state-highlight {
+    border: 1px solid #dad55e;
+    background: #fffa90;
+    color: #777620;
+}
+
+.umart_scope .ui-state-highlight a,
+.umart_scope .ui-widget-content .ui-state-highlight a,
+.umart_scope .ui-widget-header .ui-state-highlight a {
+    color: #777620;
+}
+
+.umart_scope .ui-state-error,
+.umart_scope .ui-widget-content .ui-state-error,
+.umart_scope .ui-widget-header .ui-state-error {
+    border: 1px solid #f1a899;
+    background: #fddfdf;
+    color: #5f3f3f;
+}
+
+.umart_scope .ui-state-error a,
+.umart_scope .ui-widget-content .ui-state-error a,
+.umart_scope .ui-widget-header .ui-state-error a {
+    color: #5f3f3f;
+}
+
+.umart_scope .ui-state-error-text,
+.umart_scope .ui-widget-content .ui-state-error-text,
+.umart_scope .ui-widget-header .ui-state-error-text {
+    color: #5f3f3f;
+}
+
+.umart_scope .ui-priority-primary,
+.umart_scope .ui-widget-content .ui-priority-primary,
+.umart_scope .ui-widget-header .ui-priority-primary {
+    font-weight: bold;
+}
+
+.umart_scope .ui-priority-secondary,
+.umart_scope .ui-widget-content .ui-priority-secondary,
+.umart_scope .ui-widget-header .ui-priority-secondary {
+    opacity: .7;
+    filter: Alpha(Opacity=70);
+    font-weight: normal;
+}
+
+.umart_scope .ui-state-disabled,
+.umart_scope .ui-widget-content .ui-state-disabled,
+.umart_scope .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+    background-image: none;
+}
+
+.umart_scope .ui-state-disabled .ui-icon {
+    filter: Alpha(Opacity=35);
+}
+
+/* For IE8 - See #6059 */
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.umart_scope .ui-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url("images/ui-icons_444444_256x240.png");
+}
+
+.umart_scope .ui-widget-content .ui-icon {
+    background-image: url("images/ui-icons_444444_256x240.png");
+}
+
+.umart_scope .ui-widget-header .ui-icon {
+    background-image: url("images/ui-icons_444444_256x240.png");
+}
+
+.umart_scope .ui-state-default .ui-icon {
+    background-image: url("images/ui-icons_777777_256x240.png");
+}
+
+.umart_scope .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+    background-image: url("images/ui-icons_555555_256x240.png");
+}
+
+.umart_scope .ui-state-active .ui-icon {
+    background-image: url("images/ui-icons_ffffff_256x240.png");
+}
+
+.umart_scope .ui-state-highlight .ui-icon {
+    background-image: url("images/ui-icons_777620_256x240.png");
+}
+
+.umart_scope .ui-state-error .ui-icon,
+.umart_scope .ui-state-error-text .ui-icon {
+    background-image: url("images/ui-icons_cc0000_256x240.png");
+}
+
+/* positioning */
+.umart_scope .ui-icon-carat-1-n {
+    background-position: 0 0;
+}
+
+.umart_scope .ui-icon-carat-1-ne {
+    background-position: -16px 0;
+}
+
+.umart_scope .ui-icon-carat-1-e {
+    background-position: -32px 0;
+}
+
+.umart_scope .ui-icon-carat-1-se {
+    background-position: -48px 0;
+}
+
+.umart_scope .ui-icon-carat-1-s {
+    background-position: -64px 0;
+}
+
+.umart_scope .ui-icon-carat-1-sw {
+    background-position: -80px 0;
+}
+
+.umart_scope .ui-icon-carat-1-w {
+    background-position: -96px 0;
+}
+
+.umart_scope .ui-icon-carat-1-nw {
+    background-position: -112px 0;
+}
+
+.umart_scope .ui-icon-carat-2-n-s {
+    background-position: -128px 0;
+}
+
+.umart_scope .ui-icon-carat-2-e-w {
+    background-position: -144px 0;
+}
+
+.umart_scope .ui-icon-triangle-1-n {
+    background-position: 0 -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-ne {
+    background-position: -16px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-e {
+    background-position: -32px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-se {
+    background-position: -48px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-s {
+    background-position: -64px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-sw {
+    background-position: -80px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-w {
+    background-position: -96px -16px;
+}
+
+.umart_scope .ui-icon-triangle-1-nw {
+    background-position: -112px -16px;
+}
+
+.umart_scope .ui-icon-triangle-2-n-s {
+    background-position: -128px -16px;
+}
+
+.umart_scope .ui-icon-triangle-2-e-w {
+    background-position: -144px -16px;
+}
+
+.umart_scope .ui-icon-arrow-1-n {
+    background-position: 0 -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-ne {
+    background-position: -16px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-e {
+    background-position: -32px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-se {
+    background-position: -48px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-s {
+    background-position: -64px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-sw {
+    background-position: -80px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-w {
+    background-position: -96px -32px;
+}
+
+.umart_scope .ui-icon-arrow-1-nw {
+    background-position: -112px -32px;
+}
+
+.umart_scope .ui-icon-arrow-2-n-s {
+    background-position: -128px -32px;
+}
+
+.umart_scope .ui-icon-arrow-2-ne-sw {
+    background-position: -144px -32px;
+}
+
+.umart_scope .ui-icon-arrow-2-e-w {
+    background-position: -160px -32px;
+}
+
+.umart_scope .ui-icon-arrow-2-se-nw {
+    background-position: -176px -32px;
+}
+
+.umart_scope .ui-icon-arrowstop-1-n {
+    background-position: -192px -32px;
+}
+
+.umart_scope .ui-icon-arrowstop-1-e {
+    background-position: -208px -32px;
+}
+
+.umart_scope .ui-icon-arrowstop-1-s {
+    background-position: -224px -32px;
+}
+
+.umart_scope .ui-icon-arrowstop-1-w {
+    background-position: -240px -32px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-n {
+    background-position: 0 -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-ne {
+    background-position: -16px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-e {
+    background-position: -32px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-se {
+    background-position: -48px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-s {
+    background-position: -64px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-sw {
+    background-position: -80px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-w {
+    background-position: -96px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-1-nw {
+    background-position: -112px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-2-n-s {
+    background-position: -128px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-2-ne-sw {
+    background-position: -144px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-2-e-w {
+    background-position: -160px -48px;
+}
+
+.umart_scope .ui-icon-arrowthick-2-se-nw {
+    background-position: -176px -48px;
+}
+
+.umart_scope .ui-icon-arrowthickstop-1-n {
+    background-position: -192px -48px;
+}
+
+.umart_scope .ui-icon-arrowthickstop-1-e {
+    background-position: -208px -48px;
+}
+
+.umart_scope .ui-icon-arrowthickstop-1-s {
+    background-position: -224px -48px;
+}
+
+.umart_scope .ui-icon-arrowthickstop-1-w {
+    background-position: -240px -48px;
+}
+
+.umart_scope .ui-icon-arrowreturnthick-1-w {
+    background-position: 0 -64px;
+}
+
+.umart_scope .ui-icon-arrowreturnthick-1-n {
+    background-position: -16px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturnthick-1-e {
+    background-position: -32px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturnthick-1-s {
+    background-position: -48px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturn-1-w {
+    background-position: -64px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturn-1-n {
+    background-position: -80px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturn-1-e {
+    background-position: -96px -64px;
+}
+
+.umart_scope .ui-icon-arrowreturn-1-s {
+    background-position: -112px -64px;
+}
+
+.umart_scope .ui-icon-arrowrefresh-1-w {
+    background-position: -128px -64px;
+}
+
+.umart_scope .ui-icon-arrowrefresh-1-n {
+    background-position: -144px -64px;
+}
+
+.umart_scope .ui-icon-arrowrefresh-1-e {
+    background-position: -160px -64px;
+}
+
+.umart_scope .ui-icon-arrowrefresh-1-s {
+    background-position: -176px -64px;
+}
+
+.umart_scope .ui-icon-arrow-4 {
+    background-position: 0 -80px;
+}
+
+.umart_scope .ui-icon-arrow-4-diag {
+    background-position: -16px -80px;
+}
+
+.umart_scope .ui-icon-extlink {
+    background-position: -32px -80px;
+}
+
+.umart_scope .ui-icon-newwin {
+    background-position: -48px -80px;
+}
+
+.umart_scope .ui-icon-refresh {
+    background-position: -64px -80px;
+}
+
+.umart_scope .ui-icon-shuffle {
+    background-position: -80px -80px;
+}
+
+.umart_scope .ui-icon-transfer-e-w {
+    background-position: -96px -80px;
+}
+
+.umart_scope .ui-icon-transferthick-e-w {
+    background-position: -112px -80px;
+}
+
+.umart_scope .ui-icon-folder-collapsed {
+    background-position: 0 -96px;
+}
+
+.umart_scope .ui-icon-folder-open {
+    background-position: -16px -96px;
+}
+
+.umart_scope .ui-icon-document {
+    background-position: -32px -96px;
+}
+
+.umart_scope .ui-icon-document-b {
+    background-position: -48px -96px;
+}
+
+.umart_scope .ui-icon-note {
+    background-position: -64px -96px;
+}
+
+.umart_scope .ui-icon-mail-closed {
+    background-position: -80px -96px;
+}
+
+.umart_scope .ui-icon-mail-open {
+    background-position: -96px -96px;
+}
+
+.umart_scope .ui-icon-suitcase {
+    background-position: -112px -96px;
+}
+
+.umart_scope .ui-icon-comment {
+    background-position: -128px -96px;
+}
+
+.umart_scope .ui-icon-person {
+    background-position: -144px -96px;
+}
+
+.umart_scope .ui-icon-print {
+    background-position: -160px -96px;
+}
+
+.umart_scope .ui-icon-trash {
+    background-position: -176px -96px;
+}
+
+.umart_scope .ui-icon-locked {
+    background-position: -192px -96px;
+}
+
+.umart_scope .ui-icon-unlocked {
+    background-position: -208px -96px;
+}
+
+.umart_scope .ui-icon-bookmark {
+    background-position: -224px -96px;
+}
+
+.umart_scope .ui-icon-tag {
+    background-position: -240px -96px;
+}
+
+.umart_scope .ui-icon-home {
+    background-position: 0 -112px;
+}
+
+.umart_scope .ui-icon-flag {
+    background-position: -16px -112px;
+}
+
+.umart_scope .ui-icon-calendar {
+    background-position: -32px -112px;
+}
+
+.umart_scope .ui-icon-cart {
+    background-position: -48px -112px;
+}
+
+.umart_scope .ui-icon-pencil {
+    background-position: -64px -112px;
+}
+
+.umart_scope .ui-icon-clock {
+    background-position: -80px -112px;
+}
+
+.umart_scope .ui-icon-disk {
+    background-position: -96px -112px;
+}
+
+.umart_scope .ui-icon-calculator {
+    background-position: -112px -112px;
+}
+
+.umart_scope .ui-icon-zoomin {
+    background-position: -128px -112px;
+}
+
+.umart_scope .ui-icon-zoomout {
+    background-position: -144px -112px;
+}
+
+.umart_scope .ui-icon-search {
+    background-position: -160px -112px;
+}
+
+.umart_scope .ui-icon-wrench {
+    background-position: -176px -112px;
+}
+
+.umart_scope .ui-icon-gear {
+    background-position: -192px -112px;
+}
+
+.umart_scope .ui-icon-heart {
+    background-position: -208px -112px;
+}
+
+.umart_scope .ui-icon-star {
+    background-position: -224px -112px;
+}
+
+.umart_scope .ui-icon-link {
+    background-position: -240px -112px;
+}
+
+.umart_scope .ui-icon-cancel {
+    background-position: 0 -128px;
+}
+
+.umart_scope .ui-icon-plus {
+    background-position: -16px -128px;
+}
+
+.umart_scope .ui-icon-plusthick {
+    background-position: -32px -128px;
+}
+
+.umart_scope .ui-icon-minus {
+    background-position: -48px -128px;
+}
+
+.umart_scope .ui-icon-minusthick {
+    background-position: -64px -128px;
+}
+
+.umart_scope .ui-icon-close {
+    background-position: -80px -128px;
+}
+
+.umart_scope .ui-icon-closethick {
+    background-position: -96px -128px;
+}
+
+.umart_scope .ui-icon-key {
+    background-position: -112px -128px;
+}
+
+.umart_scope .ui-icon-lightbulb {
+    background-position: -128px -128px;
+}
+
+.umart_scope .ui-icon-scissors {
+    background-position: -144px -128px;
+}
+
+.umart_scope .ui-icon-clipboard {
+    background-position: -160px -128px;
+}
+
+.umart_scope .ui-icon-copy {
+    background-position: -176px -128px;
+}
+
+.umart_scope .ui-icon-contact {
+    background-position: -192px -128px;
+}
+
+.umart_scope .ui-icon-image {
+    background-position: -208px -128px;
+}
+
+.umart_scope .ui-icon-video {
+    background-position: -224px -128px;
+}
+
+.umart_scope .ui-icon-script {
+    background-position: -240px -128px;
+}
+
+.umart_scope .ui-icon-alert {
+    background-position: 0 -144px;
+}
+
+.umart_scope .ui-icon-info {
+    background-position: -16px -144px;
+}
+
+.umart_scope .ui-icon-notice {
+    background-position: -32px -144px;
+}
+
+.umart_scope .ui-icon-help {
+    background-position: -48px -144px;
+}
+
+.umart_scope .ui-icon-check {
+    background-position: -64px -144px;
+}
+
+.umart_scope .ui-icon-bullet {
+    background-position: -80px -144px;
+}
+
+.umart_scope .ui-icon-radio-on {
+    background-position: -96px -144px;
+}
+
+.umart_scope .ui-icon-radio-off {
+    background-position: -112px -144px;
+}
+
+.umart_scope .ui-icon-pin-w {
+    background-position: -128px -144px;
+}
+
+.umart_scope .ui-icon-pin-s {
+    background-position: -144px -144px;
+}
+
+.umart_scope .ui-icon-play {
+    background-position: 0 -160px;
+}
+
+.umart_scope .ui-icon-pause {
+    background-position: -16px -160px;
+}
+
+.umart_scope .ui-icon-seek-next {
+    background-position: -32px -160px;
+}
+
+.umart_scope .ui-icon-seek-prev {
+    background-position: -48px -160px;
+}
+
+.umart_scope .ui-icon-seek-end {
+    background-position: -64px -160px;
+}
+
+.umart_scope .ui-icon-seek-start {
+    background-position: -80px -160px;
+}
+
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.umart_scope .ui-icon-seek-first {
+    background-position: -80px -160px;
+}
+
+.umart_scope .ui-icon-stop {
+    background-position: -96px -160px;
+}
+
+.umart_scope .ui-icon-eject {
+    background-position: -112px -160px;
+}
+
+.umart_scope .ui-icon-volume-off {
+    background-position: -128px -160px;
+}
+
+.umart_scope .ui-icon-volume-on {
+    background-position: -144px -160px;
+}
+
+.umart_scope .ui-icon-power {
+    background-position: 0 -176px;
+}
+
+.umart_scope .ui-icon-signal-diag {
+    background-position: -16px -176px;
+}
+
+.umart_scope .ui-icon-signal {
+    background-position: -32px -176px;
+}
+
+.umart_scope .ui-icon-battery-0 {
+    background-position: -48px -176px;
+}
+
+.umart_scope .ui-icon-battery-1 {
+    background-position: -64px -176px;
+}
+
+.umart_scope .ui-icon-battery-2 {
+    background-position: -80px -176px;
+}
+
+.umart_scope .ui-icon-battery-3 {
+    background-position: -96px -176px;
+}
+
+.umart_scope .ui-icon-circle-plus {
+    background-position: 0 -192px;
+}
+
+.umart_scope .ui-icon-circle-minus {
+    background-position: -16px -192px;
+}
+
+.umart_scope .ui-icon-circle-close {
+    background-position: -32px -192px;
+}
+
+.umart_scope .ui-icon-circle-triangle-e {
+    background-position: -48px -192px;
+}
+
+.umart_scope .ui-icon-circle-triangle-s {
+    background-position: -64px -192px;
+}
+
+.umart_scope .ui-icon-circle-triangle-w {
+    background-position: -80px -192px;
+}
+
+.umart_scope .ui-icon-circle-triangle-n {
+    background-position: -96px -192px;
+}
+
+.umart_scope .ui-icon-circle-arrow-e {
+    background-position: -112px -192px;
+}
+
+.umart_scope .ui-icon-circle-arrow-s {
+    background-position: -128px -192px;
+}
+
+.umart_scope .ui-icon-circle-arrow-w {
+    background-position: -144px -192px;
+}
+
+.umart_scope .ui-icon-circle-arrow-n {
+    background-position: -160px -192px;
+}
+
+.umart_scope .ui-icon-circle-zoomin {
+    background-position: -176px -192px;
+}
+
+.umart_scope .ui-icon-circle-zoomout {
+    background-position: -192px -192px;
+}
+
+.umart_scope .ui-icon-circle-check {
+    background-position: -208px -192px;
+}
+
+.umart_scope .ui-icon-circlesmall-plus {
+    background-position: 0 -208px;
+}
+
+.umart_scope .ui-icon-circlesmall-minus {
+    background-position: -16px -208px;
+}
+
+.umart_scope .ui-icon-circlesmall-close {
+    background-position: -32px -208px;
+}
+
+.umart_scope .ui-icon-squaresmall-plus {
+    background-position: -48px -208px;
+}
+
+.umart_scope .ui-icon-squaresmall-minus {
+    background-position: -64px -208px;
+}
+
+.umart_scope .ui-icon-squaresmall-close {
+    background-position: -80px -208px;
+}
+
+.umart_scope .ui-icon-grip-dotted-vertical {
+    background-position: 0 -224px;
+}
+
+.umart_scope .ui-icon-grip-dotted-horizontal {
+    background-position: -16px -224px;
+}
+
+.umart_scope .ui-icon-grip-solid-vertical {
+    background-position: -32px -224px;
+}
+
+.umart_scope .ui-icon-grip-solid-horizontal {
+    background-position: -48px -224px;
+}
+
+.umart_scope .ui-icon-gripsmall-diagonal-se {
+    background-position: -64px -224px;
+}
+
+.umart_scope .ui-icon-grip-diagonal-se {
+    background-position: -80px -224px;
+}
+
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.umart_scope .ui-widget-overlay {
+    background: #aaaaaa;
+    opacity: .3;
+    filter: Alpha(Opacity=30);
+}
+
+.umart_scope .ui-widget-shadow {
+    margin: 0px 0 0 0px;
+    padding: 5px;
+    background: #666666;
+    opacity: .3;
+    filter: Alpha(Opacity=30);
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.umart_scope .ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
+
+.umart_scope .ui-timepicker-div dl {
+    text-align: left;
+}
+
+.umart_scope .ui-timepicker-div dl dt {
+    float: left;
+    clear: left;
+    padding: 0 0 0 5px;
+    font-weight: normal;
+}
+
+.umart_scope .ui-timepicker-div dl dd {
+    margin: 0 10px 10px 40%;
+}
+
+.umart_scope .ui-timepicker-div td {
+    font-size: 90%;
+}
+
+.umart_scope .ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.umart_scope .ui-timepicker-div .ui_tpicker_unit_hide {
+    display: none;
+}
+
+.umart_scope .ui-timepicker-div .ui_tpicker_time .ui_tpicker_time_input {
+    background: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    border-bottom: solid 1px #555;
+    width: 95%;
+}
+
+.umart_scope .ui-timepicker-div .ui_tpicker_time .ui_tpicker_time_input:focus {
+    border-bottom-color: #aaa;
+}
+
+.umart_scope .ui-timepicker-rtl {
+    direction: rtl;
+}
+
+.umart_scope .ui-timepicker-rtl dl {
+    text-align: right;
+    padding: 0 5px 0 0;
+}
+
+.umart_scope .ui-timepicker-rtl dl dt {
+    float: right;
+    clear: right;
+}
+
+.umart_scope .ui-timepicker-rtl dl dd {
+    margin: 0 40% 10px 10px;
+}
+
+/* Shortened version style */
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine {
+    padding-right: 2px;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine .ui_tpicker_time,
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dt {
+    display: none;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine .ui_tpicker_time_label {
+    display: block;
+    padding-top: 2px;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl {
+    text-align: right;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd,
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd > div {
+    display: inline-block;
+    margin: 0;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd.ui_tpicker_minute:before,
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd.ui_tpicker_second:before {
+    content: ':';
+    display: inline-block;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd.ui_tpicker_millisec:before,
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine dl dd.ui_tpicker_microsec:before {
+    content: '.';
+    display: inline-block;
+}
+
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine .ui_tpicker_unit_hide,
+.umart_scope .ui-timepicker-div.ui-timepicker-oneLine .ui_tpicker_unit_hide:before {
+    display: none;
+}
+
+.es-field-datetime-picker .es-datetime-picker-container:not(.es-datetime-picker-inline) {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1060;
+}
+
+.es-field-datetime-picker .es-datetime-picker-inline {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.umart_scope .ui-datepicker .ui-datepicker-header .chzn-container-single .chzn-single,
+.umart_scope .ui-datepicker .ui-datepicker-header .ui-datepicker-title > select {
+    height: auto;
+    padding: 3px 0;
+    display: inline-block;
+    float: none;
+    background-color: #fff;
+}
+
+.umart_scope .ui-datepicker select.ui-timepicker-select {
+    padding: 3px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}

@@ -1,11 +1,11 @@
 <?php
-/**
- * @package     com_easyshop
- * @version     1.4.1
- * @author      JoomTech Team
- * @copyright   Copyright (C) 2015 - 2021 www.joomtech.net All Rights Reserved.
- * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
- */
+
+ 
+ 
+ 
+ 
+ 
+
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Component\ComponentHelper;
@@ -18,10 +18,18 @@ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Joomla\CMS\Table\Table;
 use Joomla\Registry\Registry;
 
-class com_easyshopInstallerScript
+class com_umartInstallerScript
 {
+	protected $propertyArrPluginsAndModules = array();
+	
 	public function preflight($type, $adapter)
 	{
+		
+		if (version_compare(JVERSION, '3.8.0', 'lt'))
+		{
+			throw new RuntimeException('<p>You need Joomla! 3.8.0 or later to install/update Umart component.</p>');
+		}
+		
 		$db = CMSFactory::getDBo();
 
 		if ($type == 'uninstall')
@@ -31,13 +39,9 @@ class com_easyshopInstallerScript
 				->set($db->quoteName('enabled') . ' = 0')
 				->set($db->quoteName('protected') . ' = 0')
 				->where($db->quoteName('type') . ' = ' . $db->quote('plugin'))
-				->where($db->quoteName('folder') . ' = ' . $db->quote('system'))
-				->where($db->quoteName('element') . ' = ' . $db->quote('easyshop'));
+				->where($db->quoteName('folder') . ' = ' . $db->quote('umart'))
+				->where($db->quoteName('element') . ' = ' . $db->quote('system'));
 			$db->setQuery($query)->execute();
-		}
-		elseif (version_compare(JVERSION, '3.8.0', 'lt'))
-		{
-			throw new RuntimeException('<p>You need Joomla! 3.8.0 or later to install/update EasyShop component.</p>');
 		}
 
 		return true;
@@ -45,9 +49,10 @@ class com_easyshopInstallerScript
 
 	public function install($adapter)
 	{
-		$path = $adapter->getParent()->getPath('source');
+		//echo 'fn install: started </br>';
+		$pathRoot = $adapter->getParent()->getPath('source');
 		$db   = CMSFactory::getDbo();
-		$SQLs = Folder::files($path . '/admin/sql/mysql/dummy', '\.sql$', false, true);
+		$SQLs = Folder::files($pathRoot . '/administrator/components/com_umart/sql/mysql/dummy', '\.sql$', false, true);
 
 		foreach ($SQLs as $SQL)
 		{
@@ -72,7 +77,7 @@ class com_easyshopInstallerScript
 		$userId = (int) CMSFactory::getUser()->id;
 		$date   = $db->quote(CMSFactory::getDate()->toSql());
 		$query  = $db->getQuery(true);
-		$query->update($db->quoteName('#__easyshop_currencies'))
+		$query->update($db->quoteName('#__umart_currencies'))
 			->set($db->quoteName('checked_out') . ' = 0')
 			->set($db->quoteName('checked_out_time') . ' = ' . $db->quote($db->getNullDate()))
 			->set($db->quoteName('created_date') . ' = ' . $date)
@@ -80,18 +85,18 @@ class com_easyshopInstallerScript
 		$db->setQuery($query)
 			->execute();
 		$query->clear('update')
-			->update($db->quoteName('#__easyshop_zones'));
+			->update($db->quoteName('#__umart_zones'));
 		$db->setQuery($query)
 			->execute();
 		$query->clear('update')
-			->update($db->quoteName('#__easyshop_customfields'));
+			->update($db->quoteName('#__umart_customfields'));
 		$db->setQuery($query)
 			->execute();
 		$this->update($adapter);
 
 		$data = [
 			'title'     => 'Shop',
-			'extension' => 'com_easyshop.product',
+			'extension' => 'com_umart.product',
 			'language'  => '*',
 			'parent_id' => 1,
 			'published' => 1,
@@ -109,75 +114,132 @@ class com_easyshopInstallerScript
 		}
 
 		$this->installMenus();
-
+		
+		//echo 'fn install: ended </br>';
 		return true;
 	}
 
 	public function update($adapter)
 	{
-		$path = $adapter->getParent()->getPath('source');
-		Folder::copy($path . '/libraries/easyshop', JPATH_ROOT . '/libraries/easyshop', '', true);
-		File::copy($path . '/cli/easyshop.php', JPATH_ROOT . '/cli/easyshop.php');
+		//echo 'fn update: started </br>';
+		$pathRoot = $adapter->getParent()->getPath('source');
+		Folder::copy($pathRoot . '/libraries/umart', JPATH_ROOT . '/libraries/umart', '', true);
+		File::copy($pathRoot . '/cli/umart.php', JPATH_ROOT . '/cli/umart.php');
+		//echo 'fn update: root path ('. $pathRoot .') exists </br>';
+		//$pathRootUmartUi = $pathRoot . '/plugins/umart/umartui';
+		$pluginsDirs = $this-> pluginsDirs ($pathRoot . '/plugins', 3);
+			
+		foreach ($pluginsDirs as $pluginDir)
+		 {
+			//echo 'fn update: pluginDir: ' .  $pluginDir . '</br>';
+			 
+			// if ($pluginDir == 'umartui'
+				 // && is_file($pathRootUmartUi . '/umartui.xml')
+				 // && function_exists('simplexml_load_file')
+				 // && ($umartUiManifest = @simplexml_load_file($pathRootUmartUi . '/umartui.xml'))
+			 // )
+			 // {
+				 // $curUIVersion = $this->getUIVersion();
 
-		if (Folder::exists($path . '/extensions/plugins'))
+				 // if (null !== $curUIVersion
+					 // && version_compare($curUIVersion, (string) $umartUiManifest->version, 'ge')
+				 // )
+				 // {
+					 // continue;
+				 // }
+			 // }
+
+			 // install plugin
+			 $installer = new Installer;
+			 if ( $installer->install($pluginDir) )
+			 {
+				 //echo 'fn update: success install of plugin ' .  $pluginDir . '</br>';
+				 array_push($this->propertyArrPluginsAndModules, $pluginDir);
+			 }
+			 else
+			 {
+				 echo 'fn update: failed install of plugin ' .  $pluginDir . '</br>';
+				 continue;//return false;
+			 }
+			 // end install plugin
+
+			 // enable plugin
+			 $manifest = $installer->getManifest();
+			 $this->pluginEnable($pluginDir, (string) $manifest->attributes()->group);
+			 // end enable plugin
+		 } // end foreach
+
+		if (Folder::exists($pathRoot . '/modules'))
 		{
-			$plugins  = Folder::folders($path . '/extensions/plugins');
-			$ukuiPath = $path . '/extensions/plugins/ukui';
-
-			foreach ($plugins as $plugin)
-			{
-				if ($plugin == 'ukui'
-					&& is_file($ukuiPath . '/ukui.xml')
-					&& function_exists('simplexml_load_file')
-					&& ($ukuiManifest = @simplexml_load_file($ukuiPath . '/ukui.xml'))
-				)
-				{
-					$curUIVersion = $this->getUIVersion();
-
-					if (null !== $curUIVersion
-						&& version_compare($curUIVersion, (string) $ukuiManifest->version, 'ge')
-					)
-					{
-						continue;
-					}
-				}
-
-				$installer = new Installer;
-
-				if (!$installer->install($path . '/extensions/plugins/' . $plugin))
-				{
-					return false;
-				}
-
-				$manifest = $installer->getManifest();
-				$this->enablePlugin($plugin, (string) $manifest->attributes()->group);
-			}
-		}
-
-		if (Folder::exists($path . '/extensions/modules'))
-		{
-			$modules = Folder::folders($path . '/extensions/modules');
+			$modules = Folder::folders($pathRoot . '/modules');
 
 			foreach ($modules as $module)
 			{
 				$installer = new Installer;
-				$installer->install($path . '/extensions/modules/' . $module);
+				$moduleDir = $pathRoot . '/modules/' . $module;
+				$installer->install($moduleDir);
+				array_push($this->propertyArrPluginsAndModules, $moduleDir);
 			}
 		}
 
-		$this->deleteFiles();
-
+		//echo 'fn update ended </br>';
 		return true;
-	}
+	} // end update
 
+	protected function pluginsDirs ($argPath, $argDeep)
+	{
+		$arrOut = array();
+		function _recursive ($argPath, $argDeep, $argDeepCurrent, &$argArrOut)
+		{
+			if (  isset($argDeepCurrent) )
+			{
+				if ( $argDeepCurrent > $argDeep )
+				{
+					 return; // currentDeep ecseeds deep limit			 
+				}
+			}
+			else
+			{
+				$argDeepCurrent=1; // first run (no recursion), set initial value to 1
+			}
+			// get subdirectories
+			$subdirs = glob($argPath . "/*",  GLOB_ONLYDIR); 
+
+			foreach ( $subdirs as $subDir )
+			{
+				// processing subdirectory
+				$fname = $subDir . '/'. basename( $subDir ) . '.xml';
+				if ( is_file($fname) )
+				{
+					//echo " $fname </br>\n";
+					array_push($argArrOut, $subDir);
+				}
+				// end processing subdirectory
+				
+				// check if we need to recurse 
+				if ( $argDeepCurrent <= $argDeep )
+				{
+					$subdirsNextTotal = count( glob($subDir . "/*",  GLOB_ONLYDIR + GLOB_NOSORT) );
+					if ($subdirsNextTotal > 0)
+					{
+						$deepCurrentNew = $argDeepCurrent + 1;
+						_recursive( $subDir, $argDeep , $deepCurrentNew, $argArrOut );					
+					}
+				}
+			} // end foreach		
+		} // end _recursive
+		_recursive ($argPath, $argDeep, null, $arrOut);
+		return $arrOut;
+	} // end pluginsDirs
+	
 	protected function getUIVersion()
 	{
 		$table = Table::getInstance('Extension', 'JTable');
 
 		if ($table->load([
 			'type'    => 'plugin',
-			'folder'  => 'system',
-			'element' => 'ukui',
+			'folder'  => 'umart',
+			'element' => 'umartui',
 		])
 		)
 		{
@@ -189,17 +251,18 @@ class com_easyshopInstallerScript
 		return null;
 	}
 
-	protected function enablePlugin($plugin, $group)
+	protected function pluginEnable($argPluginFolder, $argPluginGroup)
 	{
+		$argPluginFolder = basename($argPluginFolder);
 		$db    = CMSFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->update($db->quoteName('#__extensions'))
 			->set($db->quoteName('enabled') . ' = 1')
 			->where($db->quoteName('type') . ' = ' . $db->quote('plugin'))
-			->where($db->quoteName('element') . ' = ' . $db->quote($plugin))
-			->where($db->quoteName('folder') . ' = ' . $db->quote($group));
+			->where($db->quoteName('element') . ' = ' . $db->quote($argPluginFolder))
+			->where($db->quoteName('folder') . ' = ' . $db->quote($argPluginGroup));
 
-		if ($group == 'system')
+		if ($argPluginFolder == 'umart' OR $argPluginFolder == 'umartui')
 		{
 			$query->set($db->quoteName('protected') . ' = 1');
 		}
@@ -207,27 +270,12 @@ class com_easyshopInstallerScript
 		$db->setQuery($query);
 
 		return $db->execute();
-	}
+	} // pluginEnable
 
 	protected function deleteFiles()
 	{
 		$files = [
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/layouts/order/notification.php',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/layouts/system/notification.php',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/layouts/order/address.php',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/layouts/modal/svgicon.php',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/models/fields/modal/svgicon.php',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/tables/price.php',
-			JPATH_ROOT . '/administrator/components/com_easyshop/helpers/layout.php',
-			JPATH_ROOT . '/components/com_easyshop/layouts/product/options-addtocart.php',
-			JPATH_ROOT . '/libraries/easyshop/classes/exception.php',
-			JPATH_ROOT . '/libraries/easyshop/classes/form.php',
-			JPATH_ROOT . '/administrator/components/com_easyshop/templates/default/template.php',
-			JPATH_ROOT . '/components/com_easyshop/controllers/comment.php',
-			JPATH_ROOT . '/components/com_easyshop/layouts/product/carousel.php',
-			JPATH_ROOT . '/media/com_easyshop/js/owl.carousel.min.js',
-			JPATH_ROOT . '/media/com_easyshop/css/owl.carousel.css',
-
+			JPATH_ROOT . '/cli/umart.php'
 		];
 
 		foreach ($files as $file)
@@ -239,19 +287,10 @@ class com_easyshopInstallerScript
 		}
 
 		$folders = [
-			JPATH_ROOT . '/media/com_easyshop/js/ui/i18n',
-			JPATH_ROOT . '/components/com_easyshop/layouts/joomla/searchtools/default',
-			JPATH_LIBRARIES . '/easyshop/abstract',
-			JPATH_LIBRARIES . '/easyshop/classes',
-			JPATH_LIBRARIES . '/easyshop/controller',
-			JPATH_LIBRARIES . '/easyshop/model',
-			JPATH_LIBRARIES . '/easyshop/table',
-			JPATH_LIBRARIES . '/easyshop/plugin',
-			JPATH_LIBRARIES . '/easyshop/view',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/layouts/joomla/searchtools',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/views/reviews',
-			JPATH_ADMINISTRATOR . '/components/com_easyshop/views/review',
-			// JPATH_ROOT . '/media/com_easyshop/icons', => to keep B/C
+			JPATH_ADMINISTRATOR . '/components/com_umart',
+			JPATH_ROOT . '/components/com_umart',
+			JPATH_LIBRARIES . '/umart',
+			JPATH_ROOT . '/media/com_umart'
 		];
 
 		foreach ($folders as $folder)
@@ -304,19 +343,19 @@ class com_easyshopInstallerScript
 			$query->clear()
 				->select('a.id')
 				->from($db->quoteName('#__categories', 'a'))
-				->where('a.extension = ' . $db->quote('com_easyshop.product'))
+				->where('a.extension = ' . $db->quote('com_umart.product'))
 				->order('a.id ASC');
 			$db->setQuery($query);
 
 			$installMenu = false;
 			$categoryId  = (int) $db->loadResult();
-			$componentId = (int) ComponentHelper::getComponent('com_easyshop')->id;
+			$componentId = (int) ComponentHelper::getComponent('com_umart')->id;
 			$menuData    = [
 				[
-					'menutype'     => 'easyshopmenu',
+					'menutype'     => 'umartmenu',
 					'title'        => 'Shop',
 					'alias'        => 'shop',
-					'link'         => 'index.php?option=com_easyshop&view=productlist&id=' . $categoryId,
+					'link'         => 'index.php?option=com_umart&view=productlist&id=' . $categoryId,
 					'type'         => 'component',
 					'language'     => '*',
 					'published'    => 1,
@@ -327,10 +366,10 @@ class com_easyshopInstallerScript
 					'component_id' => $componentId,
 				],
 				[
-					'menutype'     => 'easyshopmenu',
+					'menutype'     => 'umartmenu',
 					'title'        => 'Search product',
 					'alias'        => 'search-product',
-					'link'         => 'index.php?option=com_easyshop&view=search',
+					'link'         => 'index.php?option=com_umart&view=search',
 					'type'         => 'component',
 					'language'     => '*',
 					'published'    => 1,
@@ -341,10 +380,10 @@ class com_easyshopInstallerScript
 					'component_id' => $componentId,
 				],
 				[
-					'menutype'     => 'easyshopmenu',
+					'menutype'     => 'umartmenu',
 					'title'        => 'Your cart',
 					'alias'        => 'your-cart',
-					'link'         => 'index.php?option=com_easyshop&view=cart',
+					'link'         => 'index.php?option=com_umart&view=cart',
 					'type'         => 'component',
 					'language'     => '*',
 					'published'    => 1,
@@ -355,10 +394,10 @@ class com_easyshopInstallerScript
 					'component_id' => $componentId,
 				],
 				[
-					'menutype'     => 'easyshopmenu',
+					'menutype'     => 'umartmenu',
 					'title'        => 'Product tags',
 					'alias'        => 'product-tags',
-					'link'         => 'index.php?option=com_easyshop&view=search&layout=tag',
+					'link'         => 'index.php?option=com_umart&view=search&layout=tag',
 					'type'         => 'component',
 					'language'     => '*',
 					'published'    => 1,
@@ -369,10 +408,10 @@ class com_easyshopInstallerScript
 					'component_id' => $componentId,
 				],
 				[
-					'menutype'     => 'easyshopmenu',
+					'menutype'     => 'umartmenu',
 					'title'        => 'My page',
 					'alias'        => 'my-page',
-					'link'         => 'index.php?option=com_easyshop&view=customer',
+					'link'         => 'index.php?option=com_umart&view=customer',
 					'type'         => 'component',
 					'language'     => '*',
 					'published'    => 1,
@@ -432,7 +471,7 @@ class com_easyshopInstallerScript
 				$query->clear()
 					->select('COUNT(m.id)')
 					->from($db->quoteName('#__menu_types', 'm'))
-					->where('m.menutype = ' . $db->quote('easyshopmenu'));
+					->where('m.menutype = ' . $db->quote('umartmenu'));
 				$db->setQuery($query);
 
 				if (!$db->loadResult())
@@ -440,7 +479,7 @@ class com_easyshopInstallerScript
 					$query->clear()
 						->insert($db->quoteName('#__menu_types'))
 						->columns($db->quoteName(['menutype', 'title', 'description', 'client_id']))
-						->values($db->quote('easyshopmenu') . ',' . $db->quote('EasyShop Menu') . ', ' . $db->quote('This is the default EasyShop menu.') . ', 0');
+						->values($db->quote('umartmenu') . ',' . $db->quote('Umart Menu') . ', ' . $db->quote('This is the default Umart menu.') . ', 0');
 					$db->setQuery($query)
 						->execute();
 				}
@@ -449,7 +488,7 @@ class com_easyshopInstallerScript
 		catch (RuntimeException $e)
 		{
 			CMSFactory::getApplication()->enqueueMessage($e->getMessage(), 'notice');
-		}
+		}/**/
 	}
 
 	public function uninstall($adapter)
@@ -457,32 +496,32 @@ class com_easyshopInstallerScript
 		$db    = CMSFactory::getDBo();
 		$query = $db->getQuery(true)
 			->delete($db->quoteName('#__menu'))
-			->where($db->quoteName('link') . ' LIKE ' . $db->quote('index.php?option=com_easyshop%'));
+			->where($db->quoteName('link') . ' LIKE ' . $db->quote('index.php?option=com_umart%'));
 		$db->setQuery($query)->execute();
 
 		$query->clear()
 			->delete($db->quoteName('#__categories'))
-			->where($db->quoteName('extension') . ' LIKE ' . $db->quote('com_easyshop.%'));
+			->where($db->quoteName('extension') . ' LIKE ' . $db->quote('com_umart.%'));
 		$db->setQuery($query)->execute();
 
 		$query->clear()
 			->update($db->quoteName('#__modules'))
 			->set($db->quoteName('published') . ' = 0')
-			->where($db->quoteName('module') . ' LIKE ' . $db->quote('mod_easyshop_%'));
+			->where($db->quoteName('module') . ' LIKE ' . $db->quote('mod_umart_%'));
 		$db->setQuery($query)->execute();
 
 		$query->clear()
 			->update($db->quoteName('#__extensions'))
 			->set($db->quoteName('enabled') . ' = 0')
 			->where($db->quoteName('type') . ' = ' . $db->quote('plugin'))
-			->where($db->quoteName('folder') . ' LIKE ' . $db->quote('easyshop%'));
+			->where($db->quoteName('folder') . ' LIKE ' . $db->quote('umart%'));
 		$db->setQuery($query)->execute();
 
 		$query->clear()
 			->update($db->quoteName('#__extensions'))
 			->set($db->quoteName('enabled') . ' = 0')
 			->where($db->quoteName('type') . ' = ' . $db->quote('module'))
-			->where($db->quoteName('element') . ' LIKE ' . $db->quote('mod_easyshop_%'));
+			->where($db->quoteName('element') . ' LIKE ' . $db->quote('mod_umart_%'));
 		$db->setQuery($query)->execute();
 
 		return true;
@@ -492,49 +531,77 @@ class com_easyshopInstallerScript
 	{
 		if ($type == 'uninstall')
 		{
+			$this->deleteFiles();
 			return true;
 		}
 
-		echo
-			'<style>
-					#es-install .es-a-target {
+		?>
+			<style>
+					.umart-install {
+						margin-bottom: 15px; padding: 15px; border: 1px solid #eee; 
+						font-size: 14px; color: #444; font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; line-height: 24px;					
+					}
+					a.umart-a-target {
 					        display: inline-block;
-					        text-decoration: none;
-					        text-transform: uppercase;
-					        color: #fff;
+					        text-decoration: none; text-transform: uppercase;
+					        background-color: #3F51B5; color: #fff;
 					        padding: 8px 35px;
 					        border-radius: 25px;
 					        margin-right: 5px;
 					}
+					a.umart-a-target:hover { background-color: #0077ff; }
+					.umart-install h1 {
+						margin-top: 0;
+						color: #009688; font-weight: 300;
+					}
+					.umart-install h2 {
+						margin-top: 0;
+						color: #009688; font-weight: 300;
+					}
+					.umart-install ul { list-style: none; 
+					}
+					.umart-install li::before { content: '\2713'; /* unicode check symbol */
+						padding-right: 8px;
+					}
 			</style>
-			<div id="es-install" style="margin-bottom: 15px; padding: 15px; border: 1px solid #eee; font-size: 14px; color: #444; font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; line-height: 24px;">
+			<div class="umart-install" >
 				<table border="0">
 					<tbody>
 						<tr>
 					    	<td>
-					        	<img src="https://www.joomtech.net/media/com_easyshop/assets/images/thumbs/easyshop_450x0.png" alt="EasyShop Component"/>
+					        	<img src="components/com_umart/media/images/logo-install.png" alt="Umart Component"/>
 					        </td>
 					        <td>
-						        <p style="margin-top: 0;"><strong style="color: #009688; font-size: 18px; line-height: 34px;">Thank you for using EasyShop v-' . (string) $adapter->getManifest()->version . '</strong>
-						            <br/><i class="icon-ok"></i> The EasyShop Component has been successfully installed on your website.
-						            <br/><i class="icon-ok"></i> It also automatically installed some Plugins and Modules.
-						            <br/><i class="icon-ok"></i> If you are satisfied with EasyShop, please post a rating and a review at the <a href="https://extensions.joomla.org/extensions/extension/e-commerce/shopping-cart/easy-shop/" target="_blank">Joomla! Extensions Directory</a>
+						        <h1>Thank you for using Umart <?php echo $adapter->getManifest()->version; ?></h1>
+								<p>
+						            <p>&check; The Umart Component has been successfully installed on your website.</p>
+									<?php
+										$totalPluginsAndModules = count($this->propertyArrPluginsAndModules);
+										if ( $totalPluginsAndModules > 0 )
+										{
+											?>
+											<h2>It also automatically installed <?php echo $totalPluginsAndModules;?> Plugins and Modules</h2>
+											<ul>
+											<?php
+											foreach ($this->propertyArrPluginsAndModules as $item)
+											{
+												?>
+												<li><?php echo $item; ?>
+												<?php
+											}
+										}
+									?>
 						        </p>
 					            <div>
-					            	<a href="https://www.joomtech.net/community/index" target="_blank" class="es-a-target" style="background-color: #3F51B5;">
-					                        <i class="icon-comments"></i> Forum
+					            	<a href="https://github.com/sallecta/umart" target="_blank" class="umart-a-target" >
+					                        Visit Umart home page
 					                </a>
-					               	<a href="https://www.joomtech.net/easyshop-docs/getting-started/easyshop-getting-started" target="_blank" class="es-a-target" style="background-color: #009688;">
-					                	<i class="icon-help"></i> Documentation
-					                </a>
-					            	<a href="https://demo.joomtech.net/" target="_blank" class="es-a-target" style="background-color: #F44336;">
-					                	<i class="icon-search"></i> Demo
-					            	</a>
 					        	</div>
 					        </td>
 					    </tr>
 					</tbody>
 				</table>
-			</div>';
+			</div>
+			<?php
 	}
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field
+                name="search"
+                type="text"
+                label="COM_UMART_FILTER_SEARCH"
+                description="COM_UMART_FILTER_SEARCH_DESC"
+                class="uk-input"
+                hint="JSEARCH_FILTER"/>
+        <field
+                name="published"
+                type="list"
+                label="COM_UMART_FILTER_PUBLISHED"
+                class="uk-select"
+                onchange="this.form.submit();">
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+            <option value="1">COM_UMART_PUBLISHED</option>
+            <option value="0">COM_UMART_UNPUBLISHED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
+        <field
+                name="category_id"
+                type="category"
+                label="COM_UMART_CATEGORY_SELECT"
+                class="uk-select"
+                extension="com_umart.product"
+                onchange="this.form.submit();"
+                published="0,1,2">
+            <option value="">COM_UMART_CATEGORY_SELECT</option>
+        </field>
+        <field
+                name="brand_id"
+                type="category"
+                label="COM_UMART_BRAND_SELECT"
+                class="uk-select"
+                extension="com_umart.brand"
+                onchange="this.form.submit();"
+                published="0,1,2">
+            <option value="">COM_UMART_BRAND_SELECT</option>
+        </field>
+        <field
+                name="language"
+                type="contentlanguage"
+                label="JOPTION_FILTER_LANGUAGE"
+                description="JOPTION_FILTER_LANGUAGE_DESC"
+                class="uk-select"
+                onchange="this.form.submit();">
+            <option value="">JOPTION_SELECT_LANGUAGE</option>
+            <option value="*">JALL</option>
+        </field>
+    </fields>
+    <fields name="list">
+        <field type="hidden" name="fullordering"/>
+        <field
+                name="limit"
+                type="limitbox"
+                class="uk-select umartui_width-small"
+                default="25"
+                label="COM_UMART_LIST_LIMIT"
+                description="COM_UMART_LIST_LIMIT_DESC"
+                onchange="this.form.submit();"/>
+    </fields>
+</form>

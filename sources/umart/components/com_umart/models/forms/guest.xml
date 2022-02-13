@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="login">
+        <field
+                name="username"
+                type="text"
+                label="COM_UMART_USERNAME"
+                message="COM_UMART_ERROR_USERNAME_MESSAGE"
+                class="uk-input"
+                labelclass="uk-form-label"
+                required="true"
+                size="30"
+                validate="username"
+                autocomplete="off"
+        />
+        <field
+                name="password"
+                type="password"
+                label="COM_UMART_PASSWORD"
+                class="uk-input"
+                labelclass="uk-form-label"
+                required="true"
+                size="30"
+                validate="password"
+                filter="raw"
+                autocomplete="off"
+        />
+        <field
+                name="secretkey"
+                type="text"
+                class="uk-input"
+                labelclass="uk-form-label"
+                required="false"
+                label="JGLOBAL_SECRETKEY"
+                size="25"
+        />
+    </fields>
+    <fields name="registration">
+        <field
+                name="email"
+                type="email"
+                label="COM_UMART_PROFILE_EMAIL1"
+                message="COM_UMART_PROFILE_EMAIL1_MESSAGE"
+                class="uk-input"
+                required="true"
+                size="30"
+                validate="email"
+                autocomplete="email"
+        />
+        <field
+                name="register"
+                type="checkbox"
+                label="COM_UMART_REGISTER_DURING_CHECKOUT_DESC"
+                class="uk-checkbox"
+                value="1"
+                filter="uint"
+        />
+        <field
+                name="password1"
+                type="password"
+                autocomplete="new-password"
+                class="validate-password uk-input"
+                label="COM_UMART_PROFILE_PASSWORD1"
+                message="COM_UMART_PROFILE_PASSWORD1_DESC"
+                filter="raw"
+                size="30"
+                required="true"
+                validate="password"
+                showon="register:1"
+        />
+        <field
+                name="password2"
+                type="password"
+                autocomplete="new-password"
+                class="validate-password uk-input"
+                field="password1"
+                filter="raw"
+                label="COM_UMART_PROFILE_PASSWORD2"
+                message="COM_UMART_PROFILE_PASSWORD1_MESSAGE"
+                size="30"
+                required="true"
+                validate="equals"
+                showon="register:1"
+        />
+    </fields>
+</form>

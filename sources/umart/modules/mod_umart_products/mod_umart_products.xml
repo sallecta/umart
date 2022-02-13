@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>mod_umart_products</name>
+    <author>JoomTech Team, Sallecta</author>
+    <creationDate>April 2017</creationDate>
+    <copyright>Copyright (C) 2015 - 2020 JoomTech. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>contact@example.com</authorEmail>
+    <authorUrl>github.com/sallecta/umart</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_UMART_PRODUCTS_XML_DESCRIPTION</description>
+    <files>
+        <filename module="mod_umart_products">mod_umart_products.php</filename>
+        <filename>helper.php</filename>
+        <folder>language</folder>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset
+                    name="basic"
+                    addfieldpath="/administrator/components/com_umart/models/fields">
+                <field
+                        name="prepare"
+                        type="switcher"
+                        label="COM_UMART_PREPARE_PLUGIN"
+                        description="COM_UMART_PREPARE_PLUGIN_DESC"
+                        default="0"
+                        filter="intval">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="product_mode"
+                        type="list"
+                        label="MOD_UMART_PRODUCTS_IN"
+                        default="categories">
+                    <option value="categories">COM_UMART_CATEGORIES</option>
+                    <option value="products">MOD_UMART_PRODUCTS_SPECIFIES</option>
+                </field>
+                <field
+                        name="categories"
+                        type="category"
+                        label="COM_UMART_CATEGORIES_SELECT"
+                        extension="com_umart.product"
+                        multiple="true"
+                        showon="product_mode:categories"/>
+                <field
+                        name="grid_filters"
+                        type="switcher"
+                        label="MOD_UMART_PRODUCTS_GRID_FILTERS"
+                        description="MOD_UMART_PRODUCTS_GRID_FILTERS_DESC"
+                        default="0"
+                        filter="intval"
+                        showon="product_mode:categories">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="group_in_tabs"
+                        type="switcher"
+                        label="MOD_UMART_PRODUCTS_GROUP_IN_TABS"
+                        description="MOD_UMART_PRODUCTS_GROUP_IN_TABS_DESC"
+                        showon="product_mode:categories[AND]grid_filters:0"
+                        default="0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="use_carousel"
+                        type="list"
+                        label="MOD_UMART_PRODUCTS_SLIDER"
+                        description="MOD_UMART_PRODUCTS_USE_CAROUSEL_DESC"
+                        default="0"
+                        filter="intval"
+                        showon="grid_filters:0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="slider_rows"
+                        type="number"
+                        label="MOD_UMART_PRODUCTS_SLIDER_ROWS"
+                        default="1"
+                        min="1"
+                        filter="intval"
+                        showon="grid_filters:0[AND]use_carousel:2">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="carousel_autoplay"
+                        type="switcher"
+                        label="COM_UMART_CAROUSEL_AUTOPLAY"
+                        default="1"
+                        filter="intval"
+                        showon="grid_filters:0[AND]use_carousel!:0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="carousel_nav"
+                        type="switcher"
+                        label="COM_UMART_CAROUSEL_NAV"
+                        default="1"
+                        filter="intval"
+                        showon="grid_filters:0[AND]use_carousel!:0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="carousel_dots"
+                        type="switcher"
+                        label="COM_UMART_CAROUSEL_DOTS"
+                        default="1"
+                        filter="intval"
+                        showon="grid_filters:0[AND]use_carousel!:0">
+                    <option value="1">COM_UMART_YES</option>
+                    <option value="0">COM_UMART_NO</option>
+                </field>
+                <field
+                        name="tab_layout"
+                        type="list"
+                        label="MOD_UMART_PRODUCTS_TAB_LAYOUT"
+                        default="tab-default"
+                        showon="product_mode:categories[AND]group_in_tabs:1[AND]grid_filters:0">
+                    <option value="tab-default">COM_UMART_CHECKOUT_TAB_DEFAULT</option>
+                    <option value="tab-left">COM_UMART_CHECKOUT_TAB_LEFT</option>
+                    <option value="tab-center">COM_UMART_CHECKOUT_TAB_CENTER</option>
+                    <option value="tab-right">COM_UMART_CHECKOUT_TAB_RIGHT</option>
+                    <option value="tab-bottom">COM_UMART_CHECKOUT_TAB_BOTTOM</option>
+                    <option value="slide">COM_UMART_CHECKOUT_SLIDE</option>
+                </field>
+                <field
+                        name="limit"
+                        type="number"
+                        label="MOD_UMART_PRODUCTS_LIMIT_FOR_EACH_CATEGORY"
+                        default="8"
+                        filter="intval"
+                        showon="product_mode:categories"/>
+                <field
+                        name="sort_by"
+                        type="UmartSort"
+                        label="COM_UMART_SORT_BY"
+                        default="recent"
+                        showon="product_mode:categories"/>
+                <field
+                        name="products"
+                        type="Modal_Product"
+                        label="COM_UMART_PRODUCTS_SELECT"
+                        multiple="true"
+                        showon="product_mode:products"/>
+            </fieldset>
+            <fieldset
+                    name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea" rows="3"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field
+                        name="cache"
+                        type="list"
+                        default="1"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL
+                    </option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+                    </option>
+                </field>
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field
+                        name="cachemode"
+                        type="hidden"
+                        default="static">
+                    <option value="static"></option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
